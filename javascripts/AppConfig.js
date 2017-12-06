@@ -42,7 +42,7 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
     } else if (appTo && logged){
       //if on /auth page AND logged in, redirect to search page
       $rootScope.navbar = true;
-      $location.path('/search');
+      $location.path('/teamDashboard');
     } else if (!appTo && logged){
       //if not on /auth page AND logged in see other navbar
       $rootScope.navbar = true;
@@ -56,11 +56,11 @@ app.config(function($routeProvider){
       templateUrl: 'partials/auth.html',
       controller: 'AuthCtrl'
     })
-    // .when("/team/:teamId", {
-    //   templateUrl: 'partials/teamDashboard.html',
-    //   controller: 'TeamViewCtrl',
-    //   resolve: {isAuth}
-    // })
+    .when("/team/:teamId", {
+      templateUrl: 'partials/teamDashboard.html',
+      controller: 'TeamViewCtrl',
+      resolve: {isAuth}
+    })
 
     .otherwise('/auth');
 });
