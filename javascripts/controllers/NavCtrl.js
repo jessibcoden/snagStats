@@ -4,7 +4,7 @@ app.controller("NavCtrl", function($location, $rootScope, $scope, $window, AuthS
   $scope.logoutUser = () => {
     $window.localStorage.clear();
     AuthService.logout();
-    $rootScope.navbar = false;
+    $rootScope.userLoggedIn = false;
     $location.path('/auth');
   };
 });

@@ -56,9 +56,24 @@ app.config(function($routeProvider){
       templateUrl: 'partials/auth.html',
       controller: 'AuthCtrl'
     })
-    .when("/team/:teamId", {
+    .when('/teamDashboard', {
       templateUrl: 'partials/teamDashboard.html',
       controller: 'TeamViewCtrl',
+      resolve: {isAuth}
+    })
+    .when('/teams/new', {
+      templateUrl: 'partials/coachAccess/teamCreateAndEdit.html',
+      controller: 'TeamEditCtrl',
+      resolve: {isAuth}
+    })
+    .when('/trackers/:trackerId/edit', {
+      templateUrl: 'partials/trackerAccess/coachSearch.html',
+      controller: 'FindCoachCtrl',
+      resolve: {isAuth}
+    })
+    .when('/teams/:teamId/players/new', {
+      templateUrl: 'partials/coachAccess/rosterCreateAndEdit.html',
+      controller: 'RosterCtrl',
       resolve: {isAuth}
     })
 

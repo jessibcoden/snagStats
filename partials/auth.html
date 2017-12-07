@@ -3,4 +3,17 @@
     <button class="btn btn-default " ng-click="authenticate()">
         Login With Google
     </button>
+
+    <div class="dropdown show">
+       <button><a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign up as..
+        </a>
+        
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" ng-click="newCoachAuthenticate()">Coach</a>
+            <a class="dropdown-item" ng-click="newTrackerAuthenticate()">Tracker</a>
+        </div>
+        </button>
+    </div>
+
 </div>
