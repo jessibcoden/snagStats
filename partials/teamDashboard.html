@@ -1,0 +1,78 @@
+<div id="teamDashboard">
+
+    <h1>{{team.name}} {{team.season}}</h1>
+
+    <!-- Team Stats: -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Games Played</th>
+                <th scope="col">Total Wins</th>
+                <th scope="col">Total Losses</th>
+                <th scope="col">Total Pts Scored</th>
+                <th scope="col">Avg Pts per Game </th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+<!-- Game Schedule -->
+    <div class="gameSchedule">
+        <h3>Game Schedule</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Opposing Team</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>                
+                </tr>
+            </thead>
+            <tbody ng-repeat="">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{game.status}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>{{game.opposition}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>{{game.location}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>{{game.date}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>{{game.time}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
