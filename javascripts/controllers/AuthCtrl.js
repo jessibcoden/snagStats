@@ -1,6 +1,8 @@
 'use strict';
 
 app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, TrackerService){
+
+// On Login, if returning user, direct to Team Dashboard:
   $scope.authenticate = () => {
     AuthService.authenticateGoogle().then((result) =>{
       $rootScope.userLoggedIn = true;
@@ -12,6 +14,7 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, 
     });
   };
 
+// On Sign up as... Coach, direct user to Create a Team:
   $scope.newCoachAuthenticate = () => {
     AuthService.authenticateGoogle().then((result) =>{
       $rootScope.userLoggedIn = true;
@@ -26,6 +29,7 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, 
     });
   };
 
+// On Sign up as... Tracker, direct user to Coach Search:
   $scope.newTrackerAuthenticate = () => {
     AuthService.authenticateGoogle().then((result) =>{
       $rootScope.userLoggedIn = true;
@@ -33,7 +37,6 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, 
       result.user.teamId = "";
       const newTracker = TrackerService.createTrackerObject(result.user);
       TrackerService.postNewTracker(newTracker).then((result) => {
-        console.log('result', result);
         $location.path(`/trackers/${result.data.name}/edit`);
       });
     }).catch((err) =>{
