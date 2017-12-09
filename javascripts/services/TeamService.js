@@ -1,6 +1,6 @@
 "use strict";
 
-app.service("TeamService", function($http, FIREBASE_CONFIG) {
+app.service("TeamService", function($http, $q, FIREBASE_CONFIG, AuthService) {
 
     const createNewTeamObject = (team, user) => {
         return {
@@ -11,9 +11,20 @@ app.service("TeamService", function($http, FIREBASE_CONFIG) {
         };
     };
 
+    const getTeamByCoachId = (coachId) => {
+        const coach = AuthService.getCurrentUid();
+        return  $q((resolve, reject) => {
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/teams.json?orderBy="coachId"&equalTo="${coach}"`).then((results) => {
+            }).catch((err) => {
+                reject("error in getFavorites in getTeamByCoachId in TeamService", err);
+            });
+        });       
+    };
+
     const postNewTeam = (newTeam) => {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/teams.json`, JSON.stringify(newTeam));
     };
 
-    return {createNewTeamObject, postNewTeam};
+    return {createNewTeamObject, getTeamByCoachId, postNewTeam};
+
 });
