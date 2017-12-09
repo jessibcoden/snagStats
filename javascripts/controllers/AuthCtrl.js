@@ -20,6 +20,7 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, 
       $rootScope.userLoggedIn = true;
       result.user.isCoach = true;
       result.user.teamId = "";
+      result.user.name = result.user.displayName;
       const newTracker = TrackerService.createTrackerObject(result.user);
       TrackerService.postNewTracker(newTracker).then((result) => {
         $location.path("/teams/new");
