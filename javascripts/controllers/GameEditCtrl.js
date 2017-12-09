@@ -3,7 +3,6 @@
 app.controller("GameEditCtrl", function($location, $routeParams, $scope, AuthService, GameService, TeamService){
 
 // When signing up as Coach, user can add game(s):
-
     $scope.saveAndAddAnotherGame = (game) => {
         let newGame = GameService.createNewGameObject(game, $routeParams.teamId);
             GameService.postNewGame(newGame).then((result) => {
@@ -14,8 +13,7 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, AuthSer
     };
 
     $scope.saveAndClose = (game) => {
-        const user = AuthService.getCurrentUid();
-        let newGame = GameService.createNewGameObject(game, user);
+        let newGame = GameService.createNewGameObject(game, $routeParams.teamId);
         GameService.postNewGame(newGame).then((result) => {
             $location.url("/team/dashboard");
         }).catch((err) => {

@@ -30,7 +30,6 @@ app.service("TrackerService", function($http, $q,  FIREBASE_CONFIG) {
 
     const updateTracker = (tracker, trackerId) => {
         return $http.put(`${FIREBASE_CONFIG.databaseURL}/trackers/${trackerId}.json`, JSON.stringify(tracker));
-        
     };
 
     return {createTrackerObject, getSingleTracker, postNewTracker, updateTracker};
