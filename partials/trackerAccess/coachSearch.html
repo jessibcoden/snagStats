@@ -1,17 +1,18 @@
 <div id="searchCoach">
 
-    <h2>Find Your Team</h2>
+    <h2>Find Teams By Coach</h2>
     <input type="text" placeholder="Enter Coach's Email Address" required ng-model="query">
     <button type="search" class="btn btn-warning" value="search" ng-click="findMyCoach(query)">Search</button>
 
-    <div id="teams" ng-repeat="team in teams" ><{{team.name}}</div>
-    
-    <!-- <div id="displayTeamByCoach" ng-show="displayTeamByCoach">
-            <h3>Select Your Team to Join</h3> -->
-
-
-
+    <div id="teams" ng-if="teams">
+        <h3>Select Your Team</h3>
+        <p ng-repeat="team in teams" ng-click="selectTeam(team.id)">{{team.name}}, {{team.season}}</p>
     </div>
 
+    <!-- <div id="teams" ng-if="!teams">
+        <h3>Email does not exist.</h3>
+        <p>Try again or enter another email address.</p>
+    </div> -->
+    
 </div>
         

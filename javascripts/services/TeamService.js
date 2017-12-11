@@ -15,7 +15,6 @@ app.service("TeamService", function($http, $q, FIREBASE_CONFIG, AuthService) {
         let teams = [];
         return $q ((resolve, reject) =>{
             $http.get(`${FIREBASE_CONFIG.databaseURL}/teams.json?orderBy="coachId"&equalTo="${coachUID}"`).then((result) => {
-            console.log('result', result);
                 let fbTeams = result.data;
                 Object.keys(fbTeams).forEach((key) => {
                     fbTeams[key].id = key;
