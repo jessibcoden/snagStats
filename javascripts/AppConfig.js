@@ -76,6 +76,11 @@ app.config(function($routeProvider){
       controller: 'RosterCtrl',
       resolve: {isAuth}
     })
+    .when('/teams/:teamId/games/new', {
+      templateUrl: 'partials/coachAccess/upcomingGameCreateAndEdit.html',
+      controller: 'GameEditCtrl',
+      resolve: {isAuth}
+    })
 
     .otherwise('/auth');
 });

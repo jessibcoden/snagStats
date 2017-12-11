@@ -1,20 +1,47 @@
 "use strict";
 
-app.service("TrackerService", function($http, FIREBASE_CONFIG) {
+app.service("TrackerService", function($http, $q,  FIREBASE_CONFIG) {
 
     const createTrackerObject = (user) => {
         return {
             "uid" : user.uid,
-            "name" : user.displayName,
+            "name" : user.name,
             "email": user.email,
             "isCoach": user.isCoach,
             "teamId": user.teamId
         };
     };
 
+    const getSingleTracker = (uid) => {
+        return $q ((resolve, reject) =>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/trackers.json?orderBy="uid"&equalTo="${uid}"`).then((result) => {
+                let key = Object.keys(result.data)[0];
+                result.data[key].id = key;
+                resolve(result.data[key]);
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+      };
+
+    const getTrackerByEmail = (query) => {
+        return $q ((resolve, reject) =>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/trackers.json?orderBy="email"&equalTo="${query}"`).then((result) => {
+                let key = Object.keys(result.data)[0];
+                resolve(result.data[key]);              
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    };
+
     const postNewTracker = (newTracker) => {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/trackers.json`, JSON.stringify(newTracker));
     };
 
-    return {createTrackerObject, postNewTracker};
+    const updateTracker = (tracker, trackerId) => {
+        return $http.put(`${FIREBASE_CONFIG.databaseURL}/trackers/${trackerId}.json`, JSON.stringify(tracker));
+    };
+
+    return {createTrackerObject, getSingleTracker, getTrackerByEmail, postNewTracker, updateTracker};
 });
