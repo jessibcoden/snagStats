@@ -24,6 +24,17 @@ app.service("TrackerService", function($http, $q,  FIREBASE_CONFIG) {
         });
       };
 
+    const getTrackerByEmail = (query) => {
+        return $q ((resolve, reject) =>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/trackers.json?orderBy="email"&equalTo="${query}"`).then((result) => {
+                let key = Object.keys(result.data)[0];
+                resolve(result.data[key]);              
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    };
+
     const postNewTracker = (newTracker) => {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/trackers.json`, JSON.stringify(newTracker));
     };
@@ -32,5 +43,5 @@ app.service("TrackerService", function($http, $q,  FIREBASE_CONFIG) {
         return $http.put(`${FIREBASE_CONFIG.databaseURL}/trackers/${trackerId}.json`, JSON.stringify(tracker));
     };
 
-    return {createTrackerObject, getSingleTracker, postNewTracker, updateTracker};
+    return {createTrackerObject, getSingleTracker, getTrackerByEmail, postNewTracker, updateTracker};
 });

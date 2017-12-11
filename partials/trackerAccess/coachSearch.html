@@ -1,0 +1,17 @@
+<div id="searchCoach">
+
+    <h2>Find Your Team</h2>
+    <input type="text" placeholder="Enter Coach's Email Address" required ng-model="query">
+    <button type="search" class="btn btn-warning" value="search" ng-click="findMyCoach(query)">Search</button>
+
+    <div id="teams" ng-repeat="team in teams" ><{{team.name}}</div>
+    
+    <!-- <div id="displayTeamByCoach" ng-show="displayTeamByCoach">
+            <h3>Select Your Team to Join</h3> -->
+
+
+
+    </div>
+
+</div>
+        
