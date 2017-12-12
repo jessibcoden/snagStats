@@ -29,7 +29,7 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, AuthSer
             result.data.teamScore = game.teamScore;
             result.data.oppositionScore = game.oppositionScore;
             GameService.updateGame(result.data, $routeParams.gameId).then(() => {
-                $location.url(`/teams/teamId/dashboard`);
+                $location.url(`/teams/${result.data.teamId}/dashboard`);
             });
         });
     };
