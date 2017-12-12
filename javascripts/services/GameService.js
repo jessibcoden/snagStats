@@ -39,5 +39,9 @@ app.service("GameService", function($http, $q, FIREBASE_CONFIG) {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/games.json`, JSON.stringify(newGame));
     });
 
-    return {createNewGameObject, getGameByGameId, getGamesByTeamId, postNewGame};
+    const updateGame = (game, gameId) => {
+        return $http.put(`${FIREBASE_CONFIG.databaseURL}/games/${gameId}.json`, JSON.stringify(game));
+    };
+
+    return {createNewGameObject, getGameByGameId, getGamesByTeamId, postNewGame, updateGame};
 });

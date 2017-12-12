@@ -1,13 +1,20 @@
 <div id="finalizeGame">
 
     <h2>Enter final outcome to generate insights.</h2>
-        <select>
-            <option value="Outcome..">Outcome..</option>
-            <option value="Win" ng-model="game.outcome">Win</option>
-            <option value="Loss" ng-model="game.outcome">Loss</option>
-        </select>
-        <input type="text" ng-model="game.teamScore" placeholder="Your Team's Score">
-        <input type="text" ng-model="game.oppositionScore" placeholder="Opposition's Score">
-        <button ng-click="updateGame()">Done</button>
+        
+         <form>
+
+            <select ng-model="game.outcome">
+                <option value="Outcome..">Outcome..</option>
+                <option value="Win">Win</option>
+                <option value="Loss">Loss</option>
+            </select>
+
+            <input type="text" ng-model="game.teamScore" placeholder="Your Team's Score">
+            <input type="text" ng-model="game.oppositionScore" placeholder="Opposition's Score">
+
+            <button ng-click="resolveGame(game)">Done</button>
+
+        </form>
 
 </div>
