@@ -11,6 +11,10 @@ app.service("TeamService", function($http, $q, FIREBASE_CONFIG, AuthService) {
         };
     };
 
+    const getTeamByTeamId = (teamId) => {
+        return $http.get(`${FIREBASE_CONFIG.databaseURL}/teams/${teamId}.json`);
+    };
+
     const getTeamByCoachId = (coachUID) => {
         let teams = [];
         return $q ((resolve, reject) =>{
@@ -31,6 +35,6 @@ app.service("TeamService", function($http, $q, FIREBASE_CONFIG, AuthService) {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/teams.json`, JSON.stringify(newTeam));
     };
 
-    return {createNewTeamObject, getTeamByCoachId, postNewTeam};
+    return {createNewTeamObject, getTeamByCoachId, getTeamByTeamId, postNewTeam};
 
 });

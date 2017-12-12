@@ -14,7 +14,7 @@ app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamSer
     const displayTeamByCoach = (coach) => {
         $scope.teams = [];
         TeamService.getTeamByCoachId(coach.uid).then((results) => {
-                $scope.teams = results;
+            $scope.teams = results;
         });
     };
 
@@ -24,9 +24,10 @@ app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamSer
             tracker.teamId = teamId;
             const editedTracker = TrackerService.createTrackerObject(tracker);
             TrackerService.updateTracker(editedTracker, tracker.id).then(() => {
-                $location.url(`/teams/${teamId}`);
+                $location.url(`/teams/${teamId}/dashboard`);
             });
         });
     };
+    
 
 });

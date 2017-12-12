@@ -8,7 +8,7 @@ let isAuth = (AuthService) => new Promise ((resolve, reject) => {
 });
 
 
-app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
+app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService, TrackerService){
   firebase.initializeApp(FIREBASE_CONFIG);
 
 //watch method that fires on change of a route.  3 inputs. 
@@ -40,9 +40,11 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
       //if on /auth page AND not logged in, no redirect only authentiate in navbar
       $rootScope.navbar = false;
     } else if (appTo && logged){
-      //if on /auth page AND logged in, redirect to search page
+      //if on /auth page AND logged in, redirect to teamDashboard page
       $rootScope.navbar = true;
-      $location.path('/teamDashboard');
+      TrackerService.getSingleTracker(AuthService.getCurrentUid()).then((result) => {
+        $location.path(`/teams/${result.teamId}/dashboard`);
+      });
     } else if (!appTo && logged){
       //if not on /auth page AND logged in see other navbar
       $rootScope.navbar = true;
@@ -56,7 +58,7 @@ app.config(function($routeProvider){
       templateUrl: 'partials/auth.html',
       controller: 'AuthCtrl'
     })
-    .when('/teamDashboard', {
+    .when('/teams/:teamId/dashboard', {
       templateUrl: 'partials/teamDashboard.html',
       controller: 'TeamViewCtrl',
       resolve: {isAuth}
@@ -81,6 +83,14 @@ app.config(function($routeProvider){
       controller: 'GameEditCtrl',
       resolve: {isAuth}
     })
+    .when('/games/:gameId/final', {
+      templateUrl: 'partials/coachAccess/pastGameResolveAndEdit.html',
+      controller: 'GameEditCtrl',
+      resolve: {isAuth}
+    })
+
+
+    
 
     .otherwise('/auth');
 });

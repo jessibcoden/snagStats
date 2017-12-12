@@ -1,4 +1,4 @@
-<div id="teamDashboard">
+<div class="text-center" id="teamDashboard" ng-controller="TeamViewCtrl" ng-init="init($routeParams.teamId)">
 
     <h1>{{team.name}} {{team.season}}</h1>
 
@@ -15,23 +15,10 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">1</th>
                 <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
                 <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
                 <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
                 <td>0</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
                 <td>0</td>
             </tr>
         </tbody>
@@ -43,33 +30,24 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">Status</th>
                     <th scope="col">Opposing Team</th>
                     <th scope="col">Location</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>                
                 </tr>
             </thead>
-            <tbody ng-repeat="">
+            <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
                 <tr>
-                    <th scope="row">1</th>
-                    <td>{{game.status}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
+                    <td>
+                        <button ng-if="game.status === 'upcoming'">Edit</button>
+                        <button ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
+                    </td>
+                    
                     <td>{{game.opposition}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
                     <td>{{game.location}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>{{game.date}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>{{game.time}}</td>
+                    <td>{{game.date | date:'MM/dd/yyyy'}}</td>
+                    <td>{{game.time | date:'h:mma'}}</td>
                 </tr>
             </tbody>
         </table>
