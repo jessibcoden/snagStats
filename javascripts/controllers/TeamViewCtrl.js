@@ -5,7 +5,6 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
     const getTeam = () => {
         TeamService.getTeamByTeamId($routeParams.teamId).then((results) => {
             $scope.team = results.data;
-
         });
     };
 
@@ -35,7 +34,7 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
     };
 
     $scope.finalizeGame = (game) => {
-            $location.url(`/games/${game.id}/final`);
+        $location.url(`/games/${game.id}/final`);
     };
 
     $window.onload = displayGameSchedule($routeParams.teamId); 
