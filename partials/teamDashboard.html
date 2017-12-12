@@ -14,12 +14,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+            <tr ng-controller="TeamStatCtrl">
+                <td>{{team.gamesPlayed}}</td>
+                <td>{{team.gamesWon}}</td>
+                <td>{{team.gamesLost}}</td>
+                <td>{{team.pointsScored}}</td>
+                <td>{{team.avgPointsScored}}</td>
             </tr>
         </tbody>
     </table>
