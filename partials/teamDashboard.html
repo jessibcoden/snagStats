@@ -1,0 +1,56 @@
+<div class="text-center" id="teamDashboard" ng-controller="TeamViewCtrl" ng-init="init($routeParams.teamId)">
+
+    <h1>{{team.name}} {{team.season}}</h1>
+
+    <!-- Team Stats: -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Games Played</th>
+                <th scope="col">Total Wins</th>
+                <th scope="col">Total Losses</th>
+                <th scope="col">Total Pts Scored</th>
+                <th scope="col">Avg Pts per Game </th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+<!-- Game Schedule -->
+    <div class="gameSchedule">
+        <h3>Game Schedule</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Opposing Team</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>                
+                </tr>
+            </thead>
+            <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
+                <tr>
+                    <td>
+                        <button ng-if="game.status === 'upcoming'">Edit</button>
+                        <button ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
+                    </td>
+                    
+                    <td>{{game.opposition}}</td>
+                    <td>{{game.location}}</td>
+                    <td>{{game.date | date:'MM/dd/yyyy'}}</td>
+                    <td>{{game.time | date:'h:mma'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
