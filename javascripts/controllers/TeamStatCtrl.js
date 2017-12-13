@@ -21,10 +21,12 @@ app.controller("TeamStatCtrl", function($scope, $routeParams, $window, GameServi
                 }
             });
 
+
             let totalPoints = gameScores.map(Number);
             let sum = totalPoints.reduce((a, b) => a + b, 0);
 
             let avgPtsPerGame = sum/gamesPlayed.length;
+
 
             $scope.team.pointsScored = sum;
             $scope.team.gamesPlayed = gamesPlayed.length;
@@ -33,7 +35,7 @@ app.controller("TeamStatCtrl", function($scope, $routeParams, $window, GameServi
             $scope.team.avgPointsScored = avgPtsPerGame.toFixed(0);
 
         }).catch((err) => {
-            console.log("error in calculateGamesLost in TeamStatCtrl");
+            console.log("error in calculateTeamStats in TeamStatCtrl");
             });
     };
       

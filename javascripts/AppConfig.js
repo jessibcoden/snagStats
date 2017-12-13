@@ -83,6 +83,11 @@ app.config(function($routeProvider){
       controller: 'GameEditCtrl',
       resolve: {isAuth}
     })
+    .when('/games/:gameId/edit', {
+      templateUrl: 'partials/coachAccess/upcomingGameCreateAndEdit.html',
+      controller: 'GameEditCtrl',
+      resolve: {isAuth}
+    })
     .when('/games/:gameId/final', {
       templateUrl: 'partials/coachAccess/pastGameResolveAndEdit.html',
       controller: 'GameEditCtrl',

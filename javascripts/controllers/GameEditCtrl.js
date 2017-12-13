@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("GameEditCtrl", function($location, $routeParams, $scope, AuthService, GameService, TeamService){
+app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window, AuthService, GameService, TeamService){
 
 
 // When signing up as Coach, user can add game(s):
@@ -33,5 +33,38 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, AuthSer
             });
         });
     };
+
+    const gameHasId = (game) => {
+        GameService.getGameByGameId($routeParams.gameId).then((result) => {
+            let fbGame = result.data;
+            if (fbGame.teamId){
+                $scope.gameID = true;
+            }
+           $scope.fbGame = fbGame;
+        });
+    };
+
+    $scope.deleteGame = (game) => {
+        GameService.getGameByGameId($routeParams.gameId).then((result) => {
+            GameService.deleteGame($routeParams.gameId).then(() => {
+                $location.url(`/teams/${result.data.teamId}/dashboard`);
+            });
+        });
+    };
+
+    $scope.editGame = (game) => {
+        GameService.getGameByGameId($routeParams.gameId).then((result) => {
+            result.data.opposition = game.opposition;
+            result.data.location = game.location;
+            result.data.date = game.date;
+            result.data.time = game.time;
+            GameService.updateGame(result.data, $routeParams.gameId).then(() => {
+                $location.url(`/teams/${result.data.teamId}/dashboard`);
+            });
+        });
+    };
+
+    $window.onload = gameHasId($routeParams.gameId);     
+    
 
 });

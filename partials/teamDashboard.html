@@ -40,7 +40,7 @@
             <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
                 <tr>
                     <td>
-                        <button ng-if="game.status === 'upcoming'">Edit</button>
+                        <button ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
                         <button ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
                     </td>
                     
