@@ -7,10 +7,10 @@ app.service("GameService", function($http, $q, FIREBASE_CONFIG) {
             "date" : game.date,
             "location" : game.location,
             "opposition" : game.opposition,
-            "oppositionScore" : "",
+            "oppositionScore" : 0,
             "outcome" : "",
             "teamId" : teamId,
-            "teamScore" : "",
+            "teamScore" : 0,
             "time" : game.time
         };
     };
