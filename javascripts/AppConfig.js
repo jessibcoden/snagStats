@@ -34,20 +34,20 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService, TrackerSer
     if (!appTo && !logged) {
       //if not on /auth page AND not logged in redirect to /auth     
       event.preventDefault();
-      $rootScope.navbar = false;
+      $rootScope.userLoggedIn = false;
       $location.path('/auth');
     } else if (appTo && !logged){
       //if on /auth page AND not logged in, no redirect only authentiate in navbar
-      $rootScope.navbar = false;
+      $rootScope.userLoggedIn = false;
     } else if (appTo && logged){
       //if on /auth page AND logged in, redirect to teamDashboard page
-      $rootScope.navbar = true;
+      $rootScope.userLoggedIn = true;
       TrackerService.getSingleTracker(AuthService.getCurrentUid()).then((result) => {
         $location.path(`/teams/${result.teamId}/dashboard`);
       });
     } else if (!appTo && logged){
       //if not on /auth page AND logged in see other navbar
-      $rootScope.navbar = true;
+      $rootScope.userLoggedIn = true;
     }
   }); 
 });
