@@ -1,28 +1,30 @@
-<div class="text-center" id="teamDashboard">
+<div  id="teamDashboard">
 
-    <h1>{{team.name}} {{team.season}}</h1>
+    <h1 class="text-center">{{team.name}} {{team.season}}</h1>
 
     <!-- Team Stats: -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Games Played</th>
-                <th scope="col">Total Wins</th>
-                <th scope="col">Total Losses</th>
-                <th scope="col">Total Pts Scored</th>
-                <th scope="col">Avg Pts per Game </th>                
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-controller="TeamStatCtrl">
-                <td>{{team.gamesPlayed}}</td>
-                <td>{{team.gamesWon}}</td>
-                <td>{{team.gamesLost}}</td>
-                <td>{{team.pointsScored}}</td>
-                <td>{{team.avgPointsScored}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <table class="table">
+            <thead>
+                <tr >
+                    <th scope="col" class="text-center">Games Played</th>
+                    <th scope="col" class="text-center">Total Wins</th>
+                    <th scope="col" class="text-center">Total Losses</th>
+                    <th scope="col" class="text-center">Total Pts Scored</th>
+                    <th scope="col" class="text-center">Avg Pts per Game </th>                
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" ng-controller="TeamStatCtrl">
+                    <td>{{team.gamesPlayed}}</td>
+                    <td>{{team.gamesWon}}</td>
+                    <td>{{team.gamesLost}}</td>
+                    <td>{{team.pointsScored}}</td>
+                    <td>{{team.avgPointsScored}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 <!-- Game Schedule -->
     <div class="gameSchedule">
@@ -30,7 +32,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Status</th>
+                    <th scope="col" class="text-right"></th>
                     <th scope="col">Opposing Team</th>
                     <th scope="col">Location</th>
                     <th scope="col">Date</th>
@@ -40,8 +42,8 @@
             <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
                 <tr>
                     <td>
-                        <button ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
-                        <button ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
+                        <button class="text-right" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
+                        <button class="text-right" ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
                     </td>
                     
                     <td>{{game.opposition}}</td>
