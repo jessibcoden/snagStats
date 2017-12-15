@@ -37,7 +37,9 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
     const gameHasId = (game) => {
         GameService.getGameByGameId($routeParams.gameId).then((result) => {
             let fbGame = result.data;
-            if (fbGame.teamId){
+            if (fbGame === null) {
+                $scope.gameID = false;
+            } else if (fbGame.teamId){
                 $scope.gameID = true;
             }
            $scope.fbGame = fbGame;

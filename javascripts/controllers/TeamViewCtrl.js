@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window, GameService, TeamService){
+app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window, GameService, TeamService, AuthService, TrackerService){
 
     $scope.game = {};
 
@@ -12,6 +12,19 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
 
     getTeam();
 
+    const trackerIsCoach = (tracker) => {
+        let trackerId = AuthService.getCurrentUid();
+        TrackerService.getSingleTracker(trackerId).then((result) => {
+            if (result.isCoach === true) {
+                $scope.coachView = true;
+            }else {
+                $scope.coachView = false;
+            }
+        });
+    };
+
+    trackerIsCoach();
+
     const displayGameSchedule = (teamId) => {
         GameService.getGamesByTeamId($routeParams.teamId).then((results) => {
             results.forEach((result) => {
@@ -22,6 +35,8 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
             console.log("error in displayGameSchedule");
             });
     };
+
+    displayGameSchedule($routeParams.teamId); 
 
     const checkStatus = (game) => {
         const gameSched = new Date(game.date);
@@ -43,6 +58,4 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
         $location.url(`/games/${game.id}/edit`);
     };
 
-    $window.onload = displayGameSchedule($routeParams.teamId); 
-    
 });

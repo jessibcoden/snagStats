@@ -35,10 +35,10 @@ app.controller("TeamStatCtrl", function($scope, $routeParams, $window, GameServi
             $scope.team.avgPointsScored = avgPtsPerGame.toFixed(0);
 
         }).catch((err) => {
-            console.log("error in calculateTeamStats in TeamStatCtrl");
+            console.log("error in calculateTeamStats in TeamStatCtrl", err);
             });
     };
       
-    $window.onload = calculateTeamStats($routeParams.teamId);     
+    calculateTeamStats($routeParams.teamId);     
 
 });
