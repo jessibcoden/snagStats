@@ -41,10 +41,17 @@
             </thead>
             <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
                 <tr>
-                    <td>
+                    <td ng-if="coachView === true">
                         <button class="text-right" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
-                        <button class="text-right" ng-if="game.status === 'pending'" ng-click="finalizeGame(game)">Finalize</button>
+                        <button class="text-right" ng-if="game.status === 'pending' " ng-click="finalizeGame(game)">Finalize</button>
                     </td>
+
+                    <td ng-if="coachView === false">
+                    </td>
+
+                    <!-- <td ng-if="coachView === false">
+                        <button class="text-right" ng-if="game.status === 'upcoming'" ng-click="trackGame(game)">Track</button>
+                    </td> -->
                     
                     <td>{{game.opposition}}</td>
                     <td>{{game.location}}</td>

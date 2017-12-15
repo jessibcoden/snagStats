@@ -6,9 +6,15 @@ app.controller("AuthCtrl", function($location, $rootScope, $scope, AuthService, 
   $scope.authenticate = () => {
     AuthService.authenticateGoogle().then((result) =>{
       $rootScope.userLoggedIn = true;
-      $scope.$apply(() =>{
-        $location.path("/teamDashboard");
+
+      TrackerService.getSingleTracker(AuthService.getCurrentUid()).then((user) => {
+        console.log('user', user);
+        let teamId= user.teamId;
+        $scope.$apply(() =>{
+          $location.path(`/teams/${teamId}/dashboard`);
+        });
       });
+      
     }).catch((err) =>{
       console.log("error in authenticateGoogle", err);
     });
