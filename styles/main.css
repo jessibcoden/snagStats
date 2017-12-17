@@ -3,9 +3,8 @@ body {
 
 nav {
   background: transparent; }
-  nav .navbar-brand {
-    font-family: "Krona One", sans-serif;
-    color: #0b4075; }
+  nav img {
+    height: 35px; }
 
 .navbar {
   margin-bottom: 0 !important; }
@@ -17,9 +16,13 @@ nav {
   display: block; }
   .landing h1 {
     font-family: "Krona One", sans-serif;
+    size: 300%;
     color: #0b4075;
     margin-top: 0;
     padding-top: 2%; }
+  .landing img {
+    height: 20vh;
+    width: 20vh; }
 
 .landing::after {
   content: "";

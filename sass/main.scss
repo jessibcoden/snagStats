@@ -9,9 +9,9 @@ body {
 nav {
 	background: transparent;
 	
-	.navbar-brand {
-		font-family: $branded-text;
-		color: $blue-dark-text;
+	img {
+		height: 35px;
+
 	}
 }
 
@@ -28,11 +28,19 @@ nav {
 
 	h1 {
 		font-family: $branded-text;
+		size: 300%;
 		color: $blue-dark-text;
 		margin-top: 0;
 		padding-top: 2%;
 	}
+
+	img {
+		height: 20vh;
+		width: 20vh;
+	}
 }
+
+
 
 .landing::after {
 	content: "";
