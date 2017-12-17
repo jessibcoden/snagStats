@@ -1,7 +1,7 @@
 <div id="createGame">
-        <h2>Add a Game to Your Schedule</h1> 
+        <!-- <h2>Add a Game to Your Schedule</h1> 
             
-        <form ng-if="gameID === false">
+        <! <form ng-if="gameID === false">
             <input type="text" placeholder="Opposing Team" required ng-model="game.opposition">
             <input type="text" placeholder="Location" required ng-model="game.location">
             <input type="date" placeholder="date" required ng-model="game.date">
@@ -11,9 +11,9 @@
                 <button type="submit" class="btn btn-warning" value="Save" ng-click="saveAndAddAnotherGame(game, coach)">Add Another Game</button>
                 <button type="submit" class="btn btn-warning" value="Save" ng-click="saveAndClose(game, coach)">Done</button>
             </div>
-        </form>
+        </form> -->
 
-        <form ng-if="gameID === true">
+        <!-- <form ng-if="gameID === true">
                 <input type="text" placeholder="{{fbGame.opposition}}"  ng-model="game.opposition">
                 <input type="text" placeholder="{{fbGame.location}}"  ng-model="game.location">
                 <input type="date" placeholder="{{fbGame.date}}"  ng-model="game.date">
@@ -23,7 +23,87 @@
                     <button type="submit" class="btn btn-warning" value="Delete" ng-click="deleteGame(game, coach)">Delete Game From Schedule</button>
                     <button type="submit" class="btn btn-warning" value="Save" ng-click="editGame(game, coach)">Save</button>
                 </div>
-            </form>
+            </form> --> 
+   
+            
+<!-- CREATE NEW GAME: -->
     
-    
+    <div ng-if="gameID === false">
+        <h2 class="text-center">Add a Game to Your Schedule</h1> 
+                        
+        <form >
+                        
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="gameOpposition">Opposing Team</label>
+                <input required ng-model="game.opposition" type="text" class="form-control" id="gameOpposition" aria-describedby="gameHelp" placeholder="Enter Opposing Team Name">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="location">Game Location</label>
+                <input required ng-model="game.location" type="text" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter Game Location">
+                <small id="locationHelp" class="form-text text-muted">May enter "Home" or location of away game.</small>
+            </div>
+                                    
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="date">Game Date</label>
+                <input ng-model="game.date" required type="date" class="form-control" id="date">
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="time">Game Time</label>
+                <input ng-model="game.time" required type="time" class="form-control" id="time">
+            </div>
+                                
+            <div class="form-group col-md-4 col-md-offset-4">
+                <button type="submit" class="btn" value="Save" ng-click="saveAndAddAnotherGame(game, coach)">Add Another Game</button>
+                <button type="submit" class="btn" value="Save" ng-click="saveAndClose(game, coach)">Done</button>
+            </div>
+
+
+                        
+        </form> 
     </div>
+
+
+<!-- EDITING EXISTING GAME: -->
+    <div ng-if="gameID === true">
+        <h2 class="text-center">Edit Upcoming Game</h1> 
+                    
+        <form>
+                    
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="gameOpposition">Opposing Team</label>
+                <input required ng-model="game.opposition" type="text" class="form-control" id="gameOpposition" aria-describedby="gameHelp" placeholder="{{fbGame.opposition}}">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="location">Game Location</label>
+                <input required ng-model="game.location" type="text" class="form-control" id="location" aria-describedby="locationHelp" placeholder="{{fbGame.location}}">
+                <small id="locationHelp" class="form-text text-muted">May enter "Home" or location of away game.</small>
+            </div>
+                                
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="date">Game Date</label>
+                    <input type="date" placeholder="{{fbGame.date}}"  ng-model="game.date">
+                    <input ng-model="game.date" required type="date" class="form-control" id="date">
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <label for="time">Game Time</label>
+                <input ng-model="game.time" required type="time" class="form-control" id="time" placeholder="{{fbGame.time}}">
+            </div>
+                            
+            <div class="form-group col-md-4 col-md-offset-4">
+                <button type="submit" class="btn" value="Delete" ng-click="deleteGame(game, coach)">Delete Game From Schedule</button>
+            </div>
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-warning" value="Save" ng-click="editGame(game, coach)">Save</button>
+            </div>
+                    
+        </form> 
+    </div>
+
+</div>

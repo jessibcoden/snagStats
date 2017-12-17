@@ -2,7 +2,10 @@ body {
   font-family: "Roboto", sans-serif; }
 
 nav {
-  background: transparent; }
+  background: #0b4075 !important;
+  font-family: "Krona One", sans-serif !important; }
+  nav a {
+    color: #ffffff !important; }
   nav img {
     height: 35px; }
 
@@ -35,3 +38,20 @@ nav {
   right: 0;
   opacity: 0.3;
   z-index: -1; }
+
+.btn {
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  background: #0b4075;
+  padding: 10px 20px 10px 20px;
+  border: solid #c0c0c0 2px;
+  text-decoration: none; }
+
+.btn:hover {
+  background: #494949;
+  text-decoration: none;
+  color: #ffffff; }
