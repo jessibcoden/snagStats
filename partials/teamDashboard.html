@@ -2,11 +2,11 @@
 
     <h1 class="text-center">{{team.name}} {{team.season}}</h1>
 
+<!-- TEAM STATS -->
     <div>
         <table class="table table-bordered" id="teamStats">
             <thead>
                 <tr>
-                    <!-- <th scope="col" class="text-center team-stat-head team-stat-top">Team</th> -->
                     <th scope="col" class="text-center team-stat-top">Games Played</th>
                     <th scope="col" class="text-center team-stat-top">Total Wins</th>
                     <th scope="col" class="text-center team-stat-top">Total Losses</th>
@@ -16,7 +16,6 @@
             </thead>
             <tbody>
                 <tr class="text-center" ng-controller="TeamStatCtrl">
-                    <!-- <th scope="col" class="text-center team-stat-head team-stat-bottom">Insights</th> -->
                     <td class="team-stat-bottom">{{team.gamesPlayed}}</td>
                     <td class="team-stat-bottom">{{team.gamesWon}}</td>
                     <td class="team-stat-bottom">{{team.gamesLost}}</td>
@@ -27,10 +26,7 @@
         </table>
     </div>
 
-
-
-<!-- COACH View Game Schedule -->
-    
+<!-- COACH VIEW - GAME SCHEDULE -->
     <div class="gameSchedule" ng-if="coachView === true">
         <h3 class="text-center">Game Schedule</h3>
         
@@ -61,7 +57,7 @@
         </table>
     </div>
 
-<!-- TRACKER View Game Schedule -->
+<!-- TRACKER VIEW - GAME SCHEDULE -->
     <div class="gameSchedule" ng-if="coachView === false">
         <h3 class="text-center">Upcoming Games</h3>
         

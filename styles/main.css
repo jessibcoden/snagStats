@@ -61,6 +61,15 @@ nav {
   text-decoration: none;
   color: #ffffff; }
 
+#authButtons {
+  display: flex;
+  flex-flow: row;
+  justify-content: center; }
+
+.auth-button {
+  margin-right: 8vh;
+  margin-left: 8vh; }
+
 table {
   margin-bottom: 2%;
   margin-top: 2%; }
