@@ -58,4 +58,8 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
         $location.url(`/games/${game.id}/edit`);
     };
 
+    $scope.addGame = (game) => {
+        $location.url(`/teams/${$routeParams.teamId}/games/new`);
+    };
+
 });
