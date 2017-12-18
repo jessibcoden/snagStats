@@ -11,6 +11,9 @@ nav {
   font-family: "Krona One", sans-serif !important; }
   nav a {
     color: #ffffff !important; }
+  nav a:hover {
+    background: transparent !important;
+    color: #D3BC8D !important; }
   nav img {
     height: 35px; }
 
@@ -57,24 +60,29 @@ nav {
   text-decoration: none; }
 
 .btn:hover {
-  background: #494949;
+  background: #b19a6c;
   text-decoration: none;
   color: #ffffff; }
 
-#authButtons {
+#buttonGroup {
   display: flex;
   flex-flow: row;
   justify-content: center; }
 
-.auth-button {
+.button-group {
   margin-right: 8vh;
   margin-left: 8vh; }
+
+#teamDashButtonGroup {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between; }
 
 table {
   margin-bottom: 2%;
   margin-top: 2%; }
 
-#teamDashboard {
+#teamDashboard, #gameHistory {
   margin-right: 5%;
   margin-left: 5%; }
 
@@ -95,6 +103,3 @@ table {
   display: inline-block;
   max-height: 345px;
   overflow-y: scroll; }
-
-thead {
-  table-layout: fixed; }

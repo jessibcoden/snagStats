@@ -29,6 +29,7 @@
 <!-- COACH VIEW - GAME SCHEDULE -->
     <div class="gameSchedule" ng-if="coachView === true">
         <h3 class="text-center">Game Schedule</h3>
+
         <div id="coachGameSchedule">
                 
         <table class="table table-hover">
@@ -58,10 +59,11 @@
         </table>
         </div>
         
-
-        <div class="row">
-            <button ng-click="addGame(teamId)" type="submit" class="btn col-md-4 col-md-offset-4">Add Game to Schedule</button>
+        <div class="row" id="teamDashButtonGroup">
+            <button ng-click="addGame(teamId)" type="submit" class="td-button-group btn">Add Game</button>
+            <button ng-click="viewPastGames(teamId)" type="submit" class="td-button-group btn">Game History</button>
         </div>
+
     </div>
 
 <!-- TRACKER VIEW - GAME SCHEDULE -->
@@ -93,5 +95,10 @@
             </tbody>
         </table>
 
+        <div class="row">
+            <button ng-click="viewPastGames(teamId)" type="submit" class="col-md-4 col-md-offset-4 btn">Game History</button>
+        </div>
+
     </div>
+
 </div>

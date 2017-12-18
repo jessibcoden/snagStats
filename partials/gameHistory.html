@@ -1,0 +1,32 @@
+<div>
+        <h2 class="text-center">Game History</h2>
+
+        <table class="table table-striped" id="gameHistory">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-md-1">Opposing Team</th>
+                    <th scope="col" class="col-md-1">Location</th>
+                    <th scope="col" class="col-md-1">Date</th>
+                    <th scope="col" class="col-md-1">Outcome</th> 
+                    <th scope="col" class="col-md-1">Final Score</th>                
+                    
+                </tr>
+            </thead>
+                <tbody class="table-striped" ng-if="game.status === 'past';" ng-repeat="game in games">
+                    <tr>
+                        
+                        <td class="col-md-1">{{game.opposition}}</td> 
+                        <td class="col-md-1">{{game.location}}</td>
+                        <td class="col-md-1">{{game.date | date:'MM/dd/yyyy'}}</td>
+                        <td class="col-md-1">{{game.outcome}}</td>
+                        <td class="col-md-1">{{game.teamScore}}/{{game.oppositionScore}}</td>
+
+                    </tr>
+                </tbody>
+        </table>
+        
+        <div class="row">
+            <button ng-click="goToTeamDashboard(teamId)" type="submit" class="btn col-md-4 col-md-offset-4">Team Dashboard</button>
+        </div>
+
+</div>
