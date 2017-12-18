@@ -116,8 +116,22 @@ table {
 	font-size: 125%;
 }
 
+#coach-buttons {
+text-align: right;
+}
+
 .team-stat-head {
 	font-family: $branded-text;
+}
+
+#coachGameSchedule {
+	display: inline-block;
+	max-height: 345px;
+	overflow-y: scroll;
+}
+
+thead {
+	table-layout: fixed;
 }
 
 
