@@ -4,14 +4,14 @@ app.service("GameService", function($http, $q, FIREBASE_CONFIG) {
 
     const createNewGameObject = (game, teamId) => {
         return {
-            "date" : game.date,
+            "date" : game.date.map(Number),
             "location" : game.location,
             "opposition" : game.opposition,
             "oppositionScore" : 0,
             "outcome" : "",
             "teamId" : teamId,
             "teamScore" : 0,
-            "time" : game.time
+            "time" : game.time.map(Number)
         };
     };
 

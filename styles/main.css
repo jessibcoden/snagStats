@@ -1,5 +1,10 @@
 body {
   font-family: "Roboto", sans-serif; }
+  body h1, body h2, body h3 {
+    font-family: "Krona One", sans-serif; }
+
+a:hover {
+  color: #EB3300; }
 
 nav {
   background: #0b4075 !important;
@@ -55,3 +60,21 @@ nav {
   background: #494949;
   text-decoration: none;
   color: #ffffff; }
+
+table {
+  margin-bottom: 2%;
+  margin-top: 2%; }
+
+#teamDashboard {
+  margin-right: 5%;
+  margin-left: 5%; }
+
+.table th, .table td {
+  border-top: none !important;
+  border-bottom: none !important; }
+
+.table th {
+  font-size: 125%; }
+
+.team-stat-head {
+  font-family: "Krona One", sans-serif; }

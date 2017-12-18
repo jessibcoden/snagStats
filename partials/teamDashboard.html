@@ -2,64 +2,94 @@
 
     <h1 class="text-center">{{team.name}} {{team.season}}</h1>
 
-    <!-- Team Stats: -->
     <div>
-        <table class="table">
+        <table class="table table-bordered" id="teamStats">
             <thead>
-                <tr >
-                    <th scope="col" class="text-center">Games Played</th>
-                    <th scope="col" class="text-center">Total Wins</th>
-                    <th scope="col" class="text-center">Total Losses</th>
-                    <th scope="col" class="text-center">Total Pts Scored</th>
-                    <th scope="col" class="text-center">Avg Pts per Game </th>                
+                <tr>
+                    <!-- <th scope="col" class="text-center team-stat-head team-stat-top">Team</th> -->
+                    <th scope="col" class="text-center team-stat-top">Games Played</th>
+                    <th scope="col" class="text-center team-stat-top">Total Wins</th>
+                    <th scope="col" class="text-center team-stat-top">Total Losses</th>
+                    <th scope="col" class="text-center team-stat-top">Total Pts Scored</th>
+                    <th scope="col" class="text-center team-stat-top">Avg Pts per Game </th>                
                 </tr>
             </thead>
             <tbody>
                 <tr class="text-center" ng-controller="TeamStatCtrl">
-                    <td>{{team.gamesPlayed}}</td>
-                    <td>{{team.gamesWon}}</td>
-                    <td>{{team.gamesLost}}</td>
-                    <td>{{team.pointsScored}}</td>
-                    <td>{{team.avgPointsScored}}</td>
+                    <!-- <th scope="col" class="text-center team-stat-head team-stat-bottom">Insights</th> -->
+                    <td class="team-stat-bottom">{{team.gamesPlayed}}</td>
+                    <td class="team-stat-bottom">{{team.gamesWon}}</td>
+                    <td class="team-stat-bottom">{{team.gamesLost}}</td>
+                    <td class="team-stat-bottom">{{team.pointsScored}}</td>
+                    <td class="team-stat-bottom">{{team.avgPointsScored}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-<!-- Game Schedule -->
-    <div class="gameSchedule">
-        <h3>Game Schedule</h3>
-        <table class="table">
-            <thead>
+
+
+<!-- COACH View Game Schedule -->
+    
+    <div class="gameSchedule" ng-if="coachView === true">
+        <h3 class="text-center">Game Schedule</h3>
+        
+        <table class="table table-hover" id="coachGameSchedule">
+            <thead class="thead-light">
                 <tr>
-                    <th scope="col" class="text-right"></th>
-                    <th scope="col">Opposing Team</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>                
+                    <th scope="col-md-1" class="justify-right col-md-1"></th>
+                    <th scope="col" class="col-md-1">Opposing Team</th>
+                    <th scope="col" class="col-md-1">Location</th>
+                    <th scope="col" class="col-md-1">Date</th>
+                    <th scope="col" class="col-md-1">Time</th>                
                 </tr>
             </thead>
-            <tbody ng-if="game.outcome === '';" ng-repeat="game in games">
+            <tbody class="table-striped" ng-if="game.outcome === '';" ng-repeat="game in games">
                 <tr>
-                    <td ng-if="coachView === true">
-                        <button class="text-right" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
-                        <button class="text-right" ng-if="game.status === 'pending' " ng-click="finalizeGame(game)">Finalize</button>
+                    <td class="col-md-1">
+                        <button class="btn" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
+                        <button class="btn" ng-if="game.status === 'pending' " ng-click="finalizeGame(game)">Finalize</button>
                     </td>
-
-                    <td ng-if="coachView === false">
-                    </td>
-
-                    <!-- <td ng-if="coachView === false">
-                        <button class="text-right" ng-if="game.status === 'upcoming'" ng-click="trackGame(game)">Track</button>
-                    </td> -->
                     
-                    <td>{{game.opposition}}</td>
-                    <td>{{game.location}}</td>
-                    <td>{{game.date | date:'MM/dd/yyyy'}}</td>
-                    <td>{{game.time | date:'h:mma'}}</td>
+                    <td class="col-md-1">{{game.opposition}}</td> 
+                    <td class="col-md-1">{{game.location}}</td>
+                    <td class="col-md-1">{{game.date | date:'MM/dd/yyyy'}}</td>
+                    <td class="col-md-1">{{game.time | date:'h:mma'}}</td>
+
                 </tr>
             </tbody>
         </table>
+    </div>
+
+<!-- TRACKER View Game Schedule -->
+    <div class="gameSchedule" ng-if="coachView === false">
+        <h3 class="text-center">Upcoming Games</h3>
+        
+        <table class="table table-hover" id="coachGameSchedule">
+            <thead class="thead-light">
+                <tr>
+                    <!-- <th scope="col-md-1" class="justify-right col-md-1"></th> -->
+                    <th scope="col" class="col-md-1">Opposing Team</th>
+                    <th scope="col" class="col-md-1">Location</th>
+                    <th scope="col" class="col-md-1">Date</th>
+                    <th scope="col" class="col-md-1">Time</th>                
+                </tr>
+            </thead>
+            <tbody class="table-striped" ng-if="game.status === 'upcoming' " ng-repeat="game in games">
+                <tr>
+                    <!-- <td ng-if="coachView === false" class="col-md-1">
+                        <button class="text-right btn" ng-if="game.status === 'upcoming'" ng-click="trackGame(game)">Track</button>
+                    </td> -->
+                        
+                    <td class="col-md-1">{{game.opposition}}</td> 
+                    <td class="col-md-1">{{game.location}}</td>
+                    <td class="col-md-1">{{game.date | date:'MM/dd/yyyy'}}</td>
+                    <td class="col-md-1">{{game.time | date:'h:mma'}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
 </div>

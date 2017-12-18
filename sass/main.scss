@@ -4,6 +4,14 @@
 // NAVBAR
 body {
 	font-family: $content-text;
+
+	h1, h2, h3 {
+	font-family: $branded-text;
+	}
+}
+
+a:hover {
+	color: $orange;
 }
 
 nav {
@@ -83,6 +91,40 @@ nav {
 	color: #ffffff;
   }
 
+table {
+	// background-color: $neutral-med;
+	margin-bottom: 2%;
+	margin-top: 2%
+}
 
+#teamDashboard {
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+// .team-stat-bottom {
+// 	background: linear-gradient ($neutral-med, $neutral-dark) !important;
+	
+// }
+
+// .team-stat-top {
+// 	background: linear-gradient ($neutral-light, $neutral-med) !important;
+// }
+
+.table th, .table td { 
+	border-top: none !important; 
+	border-bottom: none !important; 
+}
+
+.table th {
+	font-size: 125%;
+}
+
+.team-stat-head {
+	font-family: $branded-text;
+}
+
+// background: linear-gradient ($neutral-light, $neutral-med);
+// background: linear-gradient ($neutral-med, $neutral-dark);
 
 
