@@ -19,6 +19,8 @@
         </div>
 
     </form>
+
+    <div uib-alert ng-if="coach === false" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">Whoops! The email entered did not match any current coaches. Try again.</div>
     
 </div>
         
