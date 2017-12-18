@@ -2,10 +2,15 @@
 
 app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamService, TrackerService){
 
-
+    $scope.coach = null;
+    
     $scope.findMyCoach = (query) => {
         TrackerService.getTrackerByEmail(query).then((coach) => {
+            if (coach === undefined) {
+                $scope.coach = false;
+            }else {
             displayTeamByCoach(coach);
+            }
         }).catch((err) => {
             console.log("error in findMyCoach", err);
             });
@@ -28,6 +33,5 @@ app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamSer
             });
         });
     };
-    
 
 });
