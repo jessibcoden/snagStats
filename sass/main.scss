@@ -1,0 +1,124 @@
+@import 'colors';
+@import 'typeScript';
+
+// NAVBAR
+body {
+	font-family: $content-text;
+
+	h1, h2, h3 {
+	font-family: $branded-text;
+	}
+}
+
+a:hover {
+	color: $orange;
+}
+
+nav {
+	background: $blue-dark !important;
+	font-family: $branded-text !important;
+
+	a {
+		color: $white !important;
+	}
+	
+	img {
+		height: 35px;
+	}
+}
+
+.navbar {
+	margin-bottom: 0 !important;
+	}
+
+.landing { 
+	
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	display: block;
+
+	h1 {
+		font-family: $branded-text;
+		size: 300%;
+		color: $blue-dark;
+		margin-top: 0;
+		padding-top: 2%;
+	}
+
+	img {
+		height: 20vh;
+		width: 20vh;
+	}
+}
+
+.landing::after {
+	content: "";
+	background: url("../images/basketball-stat-tracker.jpeg") no-repeat center center fixed; 
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0.3;
+	z-index: -1;
+}
+
+.btn {
+	-webkit-box-shadow: 0px 1px 3px #666666;
+	-moz-box-shadow: 0px 1px 3px #666666;
+	box-shadow: 0px 1px 3px #666666;
+	font-family: $content-text;
+	;
+	color: #ffffff;
+	font-size: 14px;
+	background: #0b4075;
+	padding: 10px 20px 10px 20px;
+	border: solid #c0c0c0 2px;
+	text-decoration: none;
+  }
+  
+  .btn:hover {
+	background: #494949;
+	text-decoration: none;
+	color: #ffffff;
+  }
+
+#authButtons {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+}
+
+.auth-button {
+	margin-right: 8vh;
+	margin-left: 8vh;
+}
+
+table {
+	// background-color: $neutral-med;
+	margin-bottom: 2%;
+	margin-top: 2%
+}
+
+#teamDashboard {
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+.table th, .table td { 
+	border-top: none !important; 
+	border-bottom: none !important; 
+}
+
+.table th {
+	font-size: 125%;
+}
+
+.team-stat-head {
+	font-family: $branded-text;
+}
+
+
+
