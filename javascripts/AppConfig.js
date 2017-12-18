@@ -93,6 +93,12 @@ app.config(function($routeProvider){
       controller: 'GameEditCtrl',
       resolve: {isAuth}
     })
+    .when('/teams/:teamId/games/past', {
+      templateUrl: 'partials/gameHistory.html',
+      controller: 'GameHistoryCtrl',
+      resolve: {isAuth}
+    })
+    
 
 
     

@@ -21,6 +21,11 @@ nav {
 	a {
 		color: $white !important;
 	}
+
+	a:hover {
+		background: transparent !important;
+		color: $neutral-med !important;
+	}
 	
 	img {
 		height: 35px;
@@ -80,29 +85,34 @@ nav {
   }
   
   .btn:hover {
-	background: #494949;
+	background: $neutral-dark;
 	text-decoration: none;
 	color: #ffffff;
   }
 
-#authButtons {
+#buttonGroup {
 	display: flex;
 	flex-flow: row;
 	justify-content: center;
 }
 
-.auth-button {
+.button-group {
 	margin-right: 8vh;
 	margin-left: 8vh;
 }
 
+#teamDashButtonGroup {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}
+
 table {
-	// background-color: $neutral-med;
 	margin-bottom: 2%;
 	margin-top: 2%
 }
 
-#teamDashboard {
+#teamDashboard, #gameHistory {
 	margin-right: 5%;
 	margin-left: 5%;
 }
@@ -129,10 +139,3 @@ text-align: right;
 	max-height: 345px;
 	overflow-y: scroll;
 }
-
-thead {
-	table-layout: fixed;
-}
-
-
-

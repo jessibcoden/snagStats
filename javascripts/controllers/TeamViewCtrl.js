@@ -62,4 +62,8 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
         $location.url(`/teams/${$routeParams.teamId}/games/new`);
     };
 
+    $scope.viewPastGames = (team) => {
+        $location.url(`/teams/${$routeParams.teamId}/games/past`);
+    };
+
 });
