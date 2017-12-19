@@ -42,7 +42,7 @@
                     <th scope="col" class="col-md-1">Time</th>                
                 </tr>
             </thead>
-                <tbody class="table-striped" ng-if="game.outcome === '';" ng-repeat="game in games">
+                <tbody class="table-striped" ng-if="game.outcome === '';" ng-repeat="game in games | orderBy:'date'">
                     <tr>
                         <td class="col-md-1" id="coach-buttons">
                             <button class="btn" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
@@ -80,7 +80,7 @@
                     <th scope="col" class="col-md-1">Time</th>                
                 </tr>
             </thead>
-            <tbody class="table-striped" ng-if="game.status === 'upcoming' " ng-repeat="game in games">
+            <tbody class="table-striped" ng-if="game.status === 'upcoming' " ng-repeat="game in games | orderBy:'date'">
                 <tr>
                     <!-- <td ng-if="coachView === false" class="col-md-1">
                         <button class="text-right btn" ng-if="game.status === 'upcoming'" ng-click="trackGame(game)">Track</button>
