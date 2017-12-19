@@ -46,7 +46,7 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
             } else if (fbGame.teamId){
                 $scope.gameID = true;
             }
-           $scope.fbGame = fbGame;
+           $scope.game = fbGame;
         });
     };
 
