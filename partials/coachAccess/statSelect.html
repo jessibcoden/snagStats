@@ -1,0 +1,26 @@
+<div id="coachStatSelect">
+
+        <h2 class="text-center">Select Stats to be Tracked</h2> 
+        <h3 class="text-center">The number of stats selected should be based on how many Trackers you expect on a consistent basis.</h3>
+        
+    <form name="coachStatForm">
+
+        <div class="form-check" ng-repeat="statType in statTypes">
+
+            <label class="form-check-label">{{statType.name}}
+                <input class="form-check-input" type="checkbox" ng-model="teamStatType[statType.id]" ng-true-value="'{{statType.name}}'" ng-false-value="false">
+            </label><br/>
+        </div>
+        
+
+            <div class="form-group col-md-4 col-md-offset-4">
+                <button ng-click="addSelectedStatsToTeam()" type="submit" class="btn">Next</button>
+            </div>
+                <!-- <tt>value1 = {{checkboxModel.value1}}</tt><br/>
+                <tt>value2 = {{checkboxModel.value2}}</tt><br/> -->
+    </form>
+
+
+
+
+

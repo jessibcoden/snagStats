@@ -11,7 +11,7 @@ app.controller("TeamEditCtrl", function($location, $scope, AuthService, TeamServ
                 tracker.teamId = result.data.name;
                 const editedTracker = TrackerService.createTrackerObject(tracker);
                 TrackerService.updateTracker(editedTracker, tracker.id).then(() => {
-                    $location.url(`/teams/${result.data.name}/games/new`);
+                    $location.url(`/teams/${result.data.name}/stats/select`);
                 });
             });
         }).catch((err) => {
