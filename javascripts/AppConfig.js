@@ -63,14 +63,21 @@ app.config(function($routeProvider){
       controller: 'TeamViewCtrl',
       resolve: {isAuth}
     })
+    .when('/teams/:teamId/games/past', {
+      templateUrl: 'partials/gameHistory.html',
+      controller: 'GameHistoryCtrl',
+      resolve: {isAuth}
+    })
+
+// COACH - CREATING A TEAM:
     .when('/teams/new', {
       templateUrl: 'partials/coachAccess/teamCreateAndEdit.html',
       controller: 'TeamEditCtrl',
       resolve: {isAuth}
     })
-    .when('/trackers/:trackerId/edit', {
-      templateUrl: 'partials/trackerAccess/coachSearch.html',
-      controller: 'FindCoachCtrl',
+    .when('/teams/:teamId/stats/select', {
+      templateUrl: 'partials/coachAccess/statSelect.html',
+      controller: 'TeamStatCtrl',
       resolve: {isAuth}
     })
     .when('/teams/:teamId/players/new', {
@@ -83,6 +90,8 @@ app.config(function($routeProvider){
       controller: 'GameEditCtrl',
       resolve: {isAuth}
     })
+
+// COACH - GAME EDIT, GAME FINALIZE:
     .when('/games/:gameId/edit', {
       templateUrl: 'partials/coachAccess/upcomingGameCreateAndEdit.html',
       controller: 'GameEditCtrl',
@@ -93,15 +102,24 @@ app.config(function($routeProvider){
       controller: 'GameEditCtrl',
       resolve: {isAuth}
     })
-    .when('/teams/:teamId/games/past', {
-      templateUrl: 'partials/gameHistory.html',
-      controller: 'GameHistoryCtrl',
+
+// TRACKER ACCESS:
+    .when('/trackers/:trackerId/edit', {
+      templateUrl: 'partials/trackerAccess/coachSearch.html',
+      controller: 'FindCoachCtrl',
       resolve: {isAuth}
     })
-    
-
-
-    
+// TRACKER - STATS:
+    .when('/games/:gameId/stat/select', {
+      templateUrl: 'partials/trackerAccess/statSelect.html',
+      controller: 'GameStatCtrl',
+      resolve: {isAuth}
+    })
+    .when('/games/:gameId/stat/track', {
+      templateUrl: 'partials/trackerAccess/statTrack.html',
+      controller: 'GameStatCtrl',
+      resolve: {isAuth}
+    })
 
     .otherwise('/auth');
 });

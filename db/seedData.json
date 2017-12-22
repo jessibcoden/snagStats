@@ -65,8 +65,38 @@
     },
 
     "statTypes" : {
-        "shotsMade" : {
-            "name" : "Shots Made"
+        "2ptsMade" : {
+            "name" : "2pts Made"
+        },
+        "2ptsMissed" : {
+            "name" : "2pts Missed"
+        },
+        "3ptsMade" : {
+            "name" : "3pts Made"
+        },
+        "3ptsMissed" : {
+            "name" : "3pts Missed"
+        },
+        "rebounds" : {
+            "name" : "Rebounds"
+        },
+        "blocks" : {
+            "name" : "Blocks"
+        },
+        "turnovers" : {
+            "name" : "Turnovers"
+        },
+        "fouls" : {
+            "name" : "Fouls"
+        },
+        "freeThrowsMade" : {
+            "name" : "Free Throws Made"
+        },
+        "freeThrowsMissed" : {
+            "name" : "Free Throws Missed"
+        },
+        "steals" : {
+            "name" : "Steals"
         }
     }
 

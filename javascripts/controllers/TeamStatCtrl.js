@@ -1,6 +1,33 @@
 "use strict";
 
-app.controller("TeamStatCtrl", function($scope, $routeParams, $window, GameService, TeamService){
+app.controller("TeamStatCtrl", function($location, $scope, $routeParams, $window, GameService, TeamService, TeamStatService){
+
+    const getTeam = () => {
+        TeamService.getTeamByTeamId($routeParams.teamId).then((results) => {
+            $scope.team = results.data;
+        });
+    };
+
+    getTeam();
+
+    $scope.statTypes = [];
+    const getStatTypes = () => {
+        TeamStatService.getAllStatTypes().then((results) => {
+            $scope.statTypes = results;
+        });
+    };
+
+    getStatTypes();
+
+    $scope.teamStatType = {};
+
+    $scope.addSelectedStatsToTeam = () => {
+        let newTeamStatTypes = TeamStatService.createNewTeamStatTypeObject($scope.teamStatType, $routeParams.teamId);
+        newTeamStatTypes.forEach((newTeamStatType) => {
+            TeamStatService.postTeamStatType(newTeamStatType);
+            });
+        $location.url(`/teams/${$routeParams.teamId}/games/new`);
+    };
 
     const calculateTeamStats = (teamId) => {
         let gameScores = [];
