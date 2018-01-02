@@ -115,7 +115,7 @@ app.config(function($routeProvider){
       controller: 'GameStatCtrl',
       resolve: {isAuth}
     })
-    .when('/games/:gameId/stat/track', {
+    .when('/games/stat/:statId/track', {
       templateUrl: 'partials/trackerAccess/statTrack.html',
       controller: 'GameStatCtrl',
       resolve: {isAuth}

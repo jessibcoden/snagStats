@@ -74,6 +74,7 @@
             <thead class="thead-light">
                 <tr>
                     <!-- <th scope="col-md-1" class="justify-right col-md-1"></th> -->
+                    <th scope="col" class="col-md-1"></th>
                     <th scope="col" class="col-md-1">Opposing Team</th>
                     <th scope="col" class="col-md-1">Location</th>
                     <th scope="col" class="col-md-1">Date</th>
@@ -82,9 +83,9 @@
             </thead>
             <tbody class="table-striped" ng-if="game.status === 'upcoming' " ng-repeat="game in games | orderBy:'date'">
                 <tr>
-                    <!-- <td ng-if="coachView === false" class="col-md-1">
-                        <button class="text-right btn" ng-if="game.status === 'upcoming'" ng-click="trackGame(game)">Track</button>
-                    </td> -->
+                    <td ng-if="coachView === false" class="col-md-1">
+                        <button class="text-right btn" ng-if="game.status === 'upcoming'" ng-click="trackGame(game.id)">Track</button>
+                    </td>
                         
                     <td class="col-md-1">{{game.opposition}}</td> 
                     <td class="col-md-1">{{game.location}}</td>
