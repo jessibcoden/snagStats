@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window, AuthService, GameService, TeamService){
+app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window, AuthService, GameService, GameStatService, TeamService, TeamStatService){
 
     $scope.game = {};
     
@@ -8,7 +8,8 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
     $scope.saveAndAddAnotherGame = (game) => {
         let newGame = GameService.createNewGameObject(game, $routeParams.teamId);
             GameService.postNewGame(newGame).then((result) => {
-                console.log('result', result);
+                let gameId = result.data.name;
+                createGameStat(gameId);
                 $scope.game = {};
             }).catch((err) => {
                 console.log("error in saveAndAddAnotherGame", err);
@@ -21,6 +22,14 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
             $location.url(`/teams/${$routeParams.teamId}/dashboard`);
         }).catch((err) => {
         console.log("error in saveAndClose", err);
+        });
+    };
+
+    const createGameStat = (game) => {
+        TeamStatService.getTeamStatTypesByTeamId($routeParams.teamId).then(teamStats => {
+            teamStats.forEach(stat => {
+                GameStatService.createNewGameStatObject(stat, game);
+            });
         });
     };
 

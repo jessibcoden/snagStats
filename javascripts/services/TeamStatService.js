@@ -1,6 +1,6 @@
 "use strict";
 
-app.service("TeamStatService", function($http, $q, FIREBASE_CONFIG) {
+app.service("TeamStatService", function($http, $routeParams, $q, FIREBASE_CONFIG) {
 
     const createNewTeamStatTypeObject = (teamStatTypes, team) => {
         let selectedTeamStatTypes = [];
@@ -12,6 +12,18 @@ app.service("TeamStatService", function($http, $q, FIREBASE_CONFIG) {
             selectedTeamStatTypes.push(selectedStat);
         }
         return selectedTeamStatTypes;
+    };
+
+    const getTeamStatTypesByTeamId = (teamID) => {
+        let teamStatTypes = [];
+        return $http.get(`${FIREBASE_CONFIG.databaseURL}/teamStatTypes.json?orderBy="teamId"&equalTo="${teamID}"`).then((result) => {
+            let fbTeamStatTypes = result.data;
+            Object.keys(fbTeamStatTypes).forEach((key) => {
+                fbTeamStatTypes[key].id = key;
+                teamStatTypes.push(fbTeamStatTypes[key]);
+            });
+            return teamStatTypes;
+        });
     };
 
     const getAllStatTypes = () => {
@@ -34,9 +46,5 @@ app.service("TeamStatService", function($http, $q, FIREBASE_CONFIG) {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/teamStatTypes.json`, JSON.stringify(newGame));
     });
 
-    return {createNewTeamStatTypeObject, getAllStatTypes, postTeamStatType};
-
-});
-
-
-
+    return {createNewTeamStatTypeObject, getAllStatTypes, getTeamStatTypesByTeamId, postTeamStatType};
+});  
