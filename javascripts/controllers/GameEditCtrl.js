@@ -1,26 +1,37 @@
 "use strict";
 
-app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window, AuthService, GameService, TeamService){
+app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window, AuthService, GameService, GameStatService, TeamService, TeamStatService){
 
     $scope.game = {};
     
 // When signing up as Coach, user can add game(s):
     $scope.saveAndAddAnotherGame = (game) => {
         let newGame = GameService.createNewGameObject(game, $routeParams.teamId);
-            GameService.postNewGame(newGame).then((result) => {
-                console.log('result', result);
-                $scope.game = {};
-            }).catch((err) => {
-                console.log("error in saveAndAddAnotherGame", err);
-                });
+        GameService.postNewGame(newGame).then((result) => {
+            let gameId = result.data.name;
+            createGameStat(gameId);
+            $scope.game = {};
+        }).catch((err) => {
+            console.log("error in saveAndAddAnotherGame", err);
+            });
     };
 
     $scope.saveAndClose = (game) => {
         let newGame = GameService.createNewGameObject(game, $routeParams.teamId);
         GameService.postNewGame(newGame).then((result) => {
+            let gameId = result.data.name;
+            createGameStat(gameId);
             $location.url(`/teams/${$routeParams.teamId}/dashboard`);
         }).catch((err) => {
         console.log("error in saveAndClose", err);
+        });
+    };
+
+    const createGameStat = (game) => {
+        TeamStatService.getTeamStatTypesByTeamId($routeParams.teamId).then(teamStats => {
+            teamStats.forEach(stat => {
+                GameStatService.createNewGameStatObject(stat, game);
+            });
         });
     };
 

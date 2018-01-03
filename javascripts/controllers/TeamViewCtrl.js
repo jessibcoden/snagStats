@@ -29,6 +29,7 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
         GameService.getGamesByTeamId($routeParams.teamId).then((results) => {
             results.forEach((result) => {
                 result.status = checkStatus(result);
+                result.trackable = checkTrackability(result);
             });
             $scope.games = results;
         }).catch((err) => {
@@ -41,7 +42,8 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
     const checkStatus = (game) => {
         const gameSched = new Date(game.date);
         const today = new Date();
-        if (gameSched > today) {
+        today.setHours(0,0,0,0);
+        if (gameSched >= today) {
             return "upcoming";
         }else if (gameSched < today && game.outcome !== ""){
             return "past";
@@ -49,6 +51,20 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
             return "pending";
         }
     };
+
+    const checkTrackability = (game) => {
+        const gameDate = new Date(game.date);
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const tonight = new Date();
+        tonight.setHours(23,59,59,0);
+        if (gameDate >= today && gameDate <= tonight) {
+            return "true";
+        }else {
+            return "false";
+        }
+    };
+
 
     $scope.finalizeGame = (game) => {
         $location.url(`/games/${game.id}/final`);
@@ -65,5 +81,10 @@ app.controller("TeamViewCtrl", function($location, $routeParams, $scope, $window
     $scope.viewPastGames = (team) => {
         $location.url(`/teams/${$routeParams.teamId}/games/past`);
     };
+
+    $scope.trackGame = (game) => {
+        $location.url(`/games/${game}/stat/select`);
+    };
+
 
 });
