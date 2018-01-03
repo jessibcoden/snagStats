@@ -117,7 +117,7 @@ app.config(function($routeProvider){
     })
     .when('/games/stat/:statId/track', {
       templateUrl: 'partials/trackerAccess/statTrack.html',
-      controller: 'GameStatCtrl',
+      controller: 'TrackerCtrl',
       resolve: {isAuth}
     })
 

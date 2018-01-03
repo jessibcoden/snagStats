@@ -25,6 +25,16 @@ app.service("GameStatService", function($http, FIREBASE_CONFIG) {
         });
     };
 
-    return {createNewGameStatObject, getGameStatsByGameId};
+    const getStatByStatId = (statId) => {
+        console.log('statId', statId);
+        return $http.get(`${FIREBASE_CONFIG.databaseURL}/stats/${statId}.json`);
+    };
+
+    const updateStat = (statId, stat) => {
+        console.log('inside updateStat');
+        return $http.put(`${FIREBASE_CONFIG.databaseURL}/stats/${statId}.json`, JSON.stringify(stat));
+    };
+
+    return {createNewGameStatObject, getGameStatsByGameId, getStatByStatId, updateStat};
 
 });
