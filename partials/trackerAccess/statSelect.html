@@ -1,10 +1,9 @@
 <div id="trackerStatSelect">
 
     <h3 class="text-center">vs. {{game.opposition}}</h3>
-    <h3 class="text-center">at {{game.location}}</h3>
-    <h3 class="text-center">on {{game.date | date:'MM/dd/yyyy'}}</h3>
+    <h3 class="text-center">{{game.date | date:'MM/dd/yyyy'}}</h3>
         
-    <h2 class="text-center">Select Stat</h2> 
+    <h1 class="text-center">Select Stat</h1> 
     
                 
     <table class="table table-hover">
@@ -16,17 +15,19 @@
             </tr>
         </thead>
 
-    <tbody class="table-striped" ng-repeat="gameStat in gameStats">
-        <tr>
-            <td class="col-md-1">
-                <button class="text-right btn" ng-click="trackNow(gameStat.id)">Track</button>
-            </td>
-            <td class="col-md-1">{{gameStat.statTypeId}}</td> 
-        </tr>
-    </tbody>
+        <tbody class="table" ng-repeat="gameStat in gameStats">
+            <tr>
+                <td class="col-md-1 text-right">
+                    <button class="btn" ng-click="trackNow(gameStat.id)">Track</button>
+                </td>
+                <td class="col-md-1 statType">{{gameStat.statTypeId}}</td> 
+            </tr>
+        </tbody>
 
-    <div class="row form-group col-md-4 col-md-offset-4">
-        <button class="btn" ng-click="goToTeamDashboard(game.teamId)">Back</button>
+    </table>
+
+    <div class="row form-group ">
+        <button class="btn col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4" ng-click="goToTeamDashboard(game.teamId)">Back</button>
     </div>
     
 </div>

@@ -6,7 +6,6 @@ app.controller("GameStatCtrl", function($location, $routeParams, $scope, GameSta
 
     const getGameStats = (gameId) => {
         GameStatService.getGameStatsByGameId($routeParams.gameId).then((results) => {
-            console.log('results', results);
             $scope.gameStats = results;
         });
     };

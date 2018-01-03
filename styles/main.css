@@ -103,3 +103,29 @@ table {
   display: inline-block;
   max-height: 345px;
   overflow-y: scroll; }
+
+#trackControls {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  font-size: 300%; }
+  #trackControls .trackBtn {
+    font-size: 125% !important; }
+
+#trackerStatSelect .table {
+  font-size: 125% !important;
+  border: none;
+  margin-left: 20px;
+  margin-right: 65px; }
+
+#trackerStatSelect .statType {
+  vertical-align: center !important; }
+
+#trackerStatSelect .btn {
+  font-size: 60% !important; }
+
+#coachStatSelect .selectStats {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 125%; }

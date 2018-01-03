@@ -1,18 +1,18 @@
 <div>
 
     <h2 class="text-center">vs. {{game.opposition}}</h2>
-    <h2 class="text-center">Track {{stat.statTypeId}}</h2>
+    <h1 class="text-center">Track {{stat.statTypeId}}</h1>
 
-    <div class="row">
+    <div class="row" id="trackControls">
 
-        <button class="btn col-xs-4 col-md-1 col-md-offset-4" ng-click="statPlusOne(stat)">+</button>
-        <p class="col-xs-4 col-md-1">{{stat.total}}</p>
-        <button class="btn col-xs-4 col-md-1" ng-click="statMinusOne(stat)">-</button>
+        <button class="btn trackBtn col-xs-4 col-md-1 col-md-offset-4" ng-click="statPlusOne(stat)">+</button>
+        <p class="text-center col-xs-4 col-md-1">{{stat.total}}</p>
+        <button class="btn trackBtn col-xs-4 col-md-1" ng-click="statMinusOne(stat)">-</button>
 
     </div>
 
-    <div class="row form-group col-md-4 col-md-offset-4">
-        <button class="btn" ng-click="goToTeamDashboard(game.teamId)">Game Over</button>
+    <div class="row form-group ">
+        <button class="btn col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4" ng-click="goToTeamDashboard(game.teamId)">Game Over</button>
     </div>
     
     

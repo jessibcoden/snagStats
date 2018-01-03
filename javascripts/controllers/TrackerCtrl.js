@@ -6,9 +6,7 @@ app.controller("TrackerCtrl", function($location, $routeParams, $scope, GameServ
     const getStat = (statId) => {
         $scope.stat = {};
         GameStatService.getStatByStatId($routeParams.statId).then((results) => {
-            console.log('results', results);
             $scope.stat = results.data;
-            console.log('$scope.stat', $scope.stat);
             getGame(results.data.gameId);
     
         });
@@ -20,7 +18,6 @@ app.controller("TrackerCtrl", function($location, $routeParams, $scope, GameServ
         $scope.game = {};
         GameService.getGameByGameId(gameId).then((results) => {
             $scope.game = results.data;
-            console.log('$scope.game', $scope.game);
         });
     };
 

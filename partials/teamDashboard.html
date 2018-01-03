@@ -11,7 +11,7 @@
                     <th scope="col" class="text-center team-stat-top">Total Wins</th>
                     <th scope="col" class="text-center team-stat-top">Total Losses</th>
                     <th scope="col" class="text-center team-stat-top">Total Pts Scored</th>
-                    <th scope="col" class="text-center team-stat-top">Avg Pts per Game </th>                
+                    <th scope="col" class="text-center team-stat-top">Avg Pts /Game</th>                
                 </tr>
             </thead>
             <tbody>
@@ -71,9 +71,9 @@
         <h3 class="text-center">Upcoming Games</h3>
         
         <table class="table table-hover" id="coachGameSchedule">
+
             <thead class="thead-light">
                 <tr>
-                    <!-- <th scope="col-md-1" class="justify-right col-md-1"></th> -->
                     <th scope="col" class="col-md-1"></th>
                     <th scope="col" class="col-md-1">Opposing Team</th>
                     <th scope="col" class="col-md-1">Location</th>
@@ -81,10 +81,12 @@
                     <th scope="col" class="col-md-1">Time</th>                
                 </tr>
             </thead>
+
             <tbody class="table-striped" ng-if="game.status === 'upcoming' " ng-repeat="game in games | orderBy:'date'">
                 <tr>
-                    <td ng-if="coachView === false" class="col-md-1">
-                        <button class="text-right btn" ng-if="game.status === 'upcoming'" ng-click="trackGame(game.id)">Track</button>
+
+                    <td class="col-md-1">
+                        <button class="text-right btn" ng-if="game.trackable === 'true' " ng-click="trackGame(game.id)">Track</button>
                     </td>
                         
                     <td class="col-md-1">{{game.opposition}}</td> 
@@ -97,9 +99,9 @@
         </table>
 
         <div class="row">
-            <button ng-click="viewPastGames(teamId)" type="submit" class="col-md-4 col-md-offset-4 btn">Game History</button>
+            <button ng-click="viewPastGames(teamId)" type="submit" class="col-md-4 col-md-offset-4 btn col-xs-4 col-xs-offset-4 btn">Game History</button>
         </div>
-
     </div>
+
 
 </div>
