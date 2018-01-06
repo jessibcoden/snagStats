@@ -46,7 +46,7 @@
                     <tr>
                         <td class="col-md-1" id="coach-buttons">
                             <button class="btn" ng-if="game.status === 'upcoming'" ng-click="deleteGame(game)">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                <span class="fas fa-trash-alt" aria-hidden="true"></span>
                             </button>
                             <button class="btn" ng-if="game.status === 'upcoming'" ng-click="editGame(game)">Edit</button>
                             <button class="btn" ng-if="game.status === 'pending' " ng-click="finalizeGame(game)">Finalize</button>
