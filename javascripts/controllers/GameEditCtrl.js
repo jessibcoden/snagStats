@@ -10,7 +10,7 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
         GameService.postNewGame(newGame).then((result) => {
             let gameId = result.data.name;
             createGameStat(gameId);
-            $scope.game = {};
+            $scope.game.id = false;
         }).catch((err) => {
             console.log("error in saveAndAddAnotherGame", err);
             });
@@ -47,6 +47,7 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
     };
 
     const gameHasId = (game) => {
+        console.log('game', game);
         GameService.getGameByGameId($routeParams.gameId).then((result) => {
             let fbGame = result.data;
             if (fbGame === null) {
@@ -54,17 +55,15 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
             } else if (fbGame.teamId){
                 $scope.gameID = true;
             }
+        console.log('fbGame', fbGame);
+        
            $scope.game = fbGame;
+           console.log('$scope.game', $scope.game);
         });
     };
 
-    $scope.deleteGame = (game) => {
-        GameService.getGameByGameId($routeParams.gameId).then((result) => {
-            GameService.deleteGame($routeParams.gameId).then(() => {
-                $location.url(`/teams/${result.data.teamId}/dashboard`);
-            });
-        });
-    };
+   gameHasId($routeParams.gameId);     
+   
 
     $scope.editGame = (game) => {
         GameService.getGameByGameId($routeParams.gameId).then((result) => {
@@ -78,6 +77,5 @@ app.controller("GameEditCtrl", function($location, $routeParams, $scope, $window
         });
     };
 
-    $window.onload = gameHasId($routeParams.gameId);     
 
 });

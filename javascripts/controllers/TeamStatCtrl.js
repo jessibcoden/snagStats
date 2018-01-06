@@ -53,7 +53,9 @@ app.controller("TeamStatCtrl", function($location, $scope, $routeParams, $window
             let sum = totalPoints.reduce((a, b) => a + b, 0);
 
             let avgPtsPerGame = sum/gamesPlayed.length;
-
+            if(Number.isNaN(avgPtsPerGame)){
+                avgPtsPerGame = 0;
+            }
 
             $scope.team.pointsScored = sum;
             $scope.team.gamesPlayed = gamesPlayed.length;

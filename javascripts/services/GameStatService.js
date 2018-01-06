@@ -21,6 +21,7 @@ app.service("GameStatService", function($http, FIREBASE_CONFIG) {
                 fbgameStats[key].id = key;
                 gameStats.push(fbgameStats[key]);
             });
+            console.log('gameStats', gameStats);
             return gameStats;
         });
     };

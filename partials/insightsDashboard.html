@@ -1,0 +1,50 @@
+<div>
+        
+
+    <h1 class="text-center">{{team.name}} {{team.season}}</h1>
+
+    <h3 class="text-center">Game Insights</h3>
+
+    <div id="gameInsights" ng-repeat="pastGame in pastGames | orderBy:'date'">  
+        <h3>vs {{pastGame.opposition}}</h3>         
+        <table class="table table-hover">
+            <thead class="thead-default">
+                <tr>
+                    <th scope="col" class="col-md-1">Location</th>
+                    <th scope="col" class="col-md-1">Date</th>
+                    <th scope="col" class="col-md-1">Outcome</th> 
+                    <th scope="col" class="col-md-1">Score</th>                
+                    
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                <tr>
+                    <td class="col-md-1">{{pastGame.location}}</td>
+                    <td class="col-md-1">{{pastGame.date | date:'MM/dd/yyyy'}}</td>
+                    <td class="col-md-1">{{pastGame.outcome}}</td>
+                    <td class="col-md-1">{{pastGame.teamScore}}-{{pastGame.oppositionScore}}</td>
+
+                </tr>
+            </tbody>
+
+        </table>
+        <table class="table table-hover">
+            <thead class="thead-default">
+                <tr >
+                    <th ng-repeat="gameStat in gameStats" ng-if="gameStat.gameId == pastGame.id" scope="col" class="col-md-1 text-capitalize">{{gameStat.statTypeId}}</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped" >
+                <tr>
+                    <td ng-repeat="gameStat in gameStats" ng-if="gameStat.gameId == pastGame.id" class="col-md-1">{{gameStat.total}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>    
+
+    <div class="row">
+        <button  ng-click="goToTeamDashboard(teamId)" type="submit" class="td-button-group col-md-2 col-md-offset-5 btn">Team Dashboard</button>
+    </div>
+
+</div>

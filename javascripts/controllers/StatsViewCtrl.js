@@ -1,34 +1,45 @@
 "use strict";
 
-app.controller("GameHistoryCtrl", function($scope, $location, $routeParams, AuthService, GameService, TeamService, TrackerService){
+app.controller("StatsViewCtrl", function($location, $routeParams, $scope, GameService, GameStatService, TeamService){
 
-    $scope.game = {};
+    $scope.pastGames = [];
+    $scope.gameStats = [];
     
     const getTeam = () => {
         TeamService.getTeamByTeamId($routeParams.teamId).then((results) => {
             $scope.team = results.data;
         });
     };
-
+    
     getTeam();
 
-    const displayPastGames = (teamId) => {
+    const displayGameSchedule = (teamId) => {
         GameService.getGamesByTeamId($routeParams.teamId).then((results) => {
             results.forEach((result) => {
                 result.status = checkStatus(result);
+                if (result.status === "past") {
+                    $scope.pastGames.push(result);
+                }
             });
-            $scope.games = results;
+            $scope.pastGames.forEach((game) => {
+                GameStatService.getGameStatsByGameId(game.id).then((stats) => {
+                    stats.forEach((stat) => {
+                        $scope.gameStats.push(stat);
+                    });
+                });
+            });
         }).catch((err) => {
-            console.log("error in displayPastGames");
+            console.log("error in displayGameSchedule");
             });
     };
 
-    displayPastGames($routeParams.teamId); 
+    displayGameSchedule($routeParams.teamId); 
 
     const checkStatus = (game) => {
         const gameSched = new Date(game.date);
         const today = new Date();
-        if (gameSched > today) {
+        today.setHours(0,0,0,0);
+        if (gameSched >= today) {
             return "upcoming";
         }else if (gameSched < today && game.outcome !== ""){
             return "past";
@@ -37,7 +48,7 @@ app.controller("GameHistoryCtrl", function($scope, $location, $routeParams, Auth
         }
     };
 
-    $scope.goToTeamDashboard = (team) => {
+    $scope.goToTeamDashboard = (teamId) => {
         $location.url(`/teams/${$routeParams.teamId}/dashboard`);
     };
 

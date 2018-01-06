@@ -1,103 +1,485 @@
 {
-    "trackers" : {
-        "tracker1" : {
-            "isCoach" : true,
-            "name" : "Billy",
-            "email" : "totallybill@balla.com",
-            "teamId" : "team1"
-        }
-
+  "games" : {
+    "-L28AUnKexo9jM04padH" : {
+      "date" : "2017-11-14T06:00:00.000Z",
+      "location" : "United Center, Chicago",
+      "opposition" : "Kentucky",
+      "oppositionScore" : "61",
+      "outcome" : "Win",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : "65",
+      "time" : "1970-01-01T19:00:00.000Z"
     },
-
-    "players" : {
-        "player1" : {
-            "name" : "Sawyer",
-            "position" : "P Forward",
-            "number" : 0,
-            "teamId" : "team1"
-        }
+    "-L28Ac9uQBCj78cs5JAt" : {
+      "date" : "2017-11-17T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "SDSU",
+      "oppositionScore" : "64",
+      "outcome" : "Win",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : "98",
+      "time" : "1970-01-01T21:00:00.000Z"
     },
-    
-    "teams" : {
-        "team1" : {
-            "coachId" : "tracker1", 
-            "name" : "Suns",
-            "league" : "WWBA",
-            "season" : "2017/2018"
-        }
+    "-L28AjxGUEGClX3ztFEC" : {
+      "date" : "2017-11-21T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "TX Southern",
+      "oppositionScore" : "71",
+      "outcome" : "Win",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : "114",
+      "time" : "1970-01-02T00:00:00.000Z"
     },
-
-    "teamPlayers" : {
-        "teamPlayer1" : {
-            "teamId" : "team1",
-            "playerId" : "player1"
-        }
+    "-L28AsK7jLCkMbgZV4Or" : {
+      "date" : "2017-11-24T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "Oakland",
+      "oppositionScore" : "59",
+      "outcome" : "Win",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : "102",
+      "time" : "1970-01-01T17:00:00.000Z"
     },
-
-    "teamStatTypes" : {
-        "teamStatType0" : {
-            "teamId" : "team1",
-            "statTypeId" : "shotsMade"
-        }
+    "-L28B2zXcAuthTB0qFHD" : {
+      "date" : "2017-11-28T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "Toledo",
+      "oppositionScore" : "58",
+      "outcome" : "Win",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : "96",
+      "time" : "1970-01-02T01:00:00.000Z"
     },
-
-    "games" : {
-        "game1" : {
-            "teamId" : "team1",
-            "opposition" : "Magic",
-            "date" : "12/4/2017",
-            "time" : "1:00 pm",
-            "location" : "WAW",
-            "outcome" : "Win",
-            "teamScore" : 42,
-            "oppositionScore" : 30
-        }
+    "-L28BHBSOd6wXRzKu0YK" : {
+      "date" : "2018-01-06T06:00:00.000Z",
+      "location" : "Fort Worth, TX",
+      "opposition" : "TCU",
+      "oppositionScore" : 0,
+      "outcome" : "",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : 0,
+      "time" : "1970-01-02T02:15:00.000Z"
     },
-
-    "stats" : {
-        "stat1" : {
-            "statTypeId" : "shotsMade",
-            "playerId" : "player1",
-            "total" : 4,
-            "gameId" : "game1"
-        }
-
+    "-L28BOs8sG4LA8J-_9ah" : {
+      "date" : "2018-01-09T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "Iowa State",
+      "oppositionScore" : 0,
+      "outcome" : "",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : 0,
+      "time" : "1970-01-02T02:00:00.000Z"
     },
-
-    "statTypes" : {
-        "2ptsMade" : {
-            "name" : "2pts Made"
-        },
-        "2ptsMissed" : {
-            "name" : "2pts Missed"
-        },
-        "3ptsMade" : {
-            "name" : "3pts Made"
-        },
-        "3ptsMissed" : {
-            "name" : "3pts Missed"
-        },
-        "rebounds" : {
-            "name" : "Rebounds"
-        },
-        "blocks" : {
-            "name" : "Blocks"
-        },
-        "turnovers" : {
-            "name" : "Turnovers"
-        },
-        "fouls" : {
-            "name" : "Fouls"
-        },
-        "freeThrowsMade" : {
-            "name" : "Free Throws Made"
-        },
-        "freeThrowsMissed" : {
-            "name" : "Free Throws Missed"
-        },
-        "steals" : {
-            "name" : "Steals"
-        }
+    "-L28BZxPod6qSUEMQADe" : {
+      "date" : "2018-01-13T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "Kansas St",
+      "oppositionScore" : 0,
+      "outcome" : "",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : 0,
+      "time" : "1970-01-01T17:00:00.000Z"
+    },
+    "-L28BhkhZBIAgfCsWpqR" : {
+      "date" : "2018-01-15T06:00:00.000Z",
+      "location" : "Morgantown, WV",
+      "opposition" : "West Virginia",
+      "oppositionScore" : 0,
+      "outcome" : "",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "teamScore" : 0,
+      "time" : "1970-01-02T02:00:00.000Z"
+    },
+    "game1" : {
+      "date" : "2017-11-14T06:00:00.000Z",
+      "location" : "United Center, Chicago",
+      "opposition" : "Kentucky",
+      "oppositionScore" : 61,
+      "outcome" : "Win",
+      "teamId" : "team1",
+      "teamScore" : 65,
+      "time" : "1970-01-01T22:00:00.000Z pm"
+    },
+    "game2" : {
+      "date" : "2017-11-17T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "SDSU",
+      "oppositionScore" : 64,
+      "outcome" : "Win",
+      "teamId" : "team1",
+      "teamScore" : 98,
+      "time" : "1970-01-01T22:00:00.000Z pm"
+    },
+    "game3" : {
+      "date" : "2017-11-21T06:00:00.000Z",
+      "location" : "Home",
+      "opposition" : "TX Southern",
+      "oppositionScore" : 71,
+      "outcome" : "Win",
+      "teamId" : "team1",
+      "teamScore" : 114,
+      "time" : "1970-01-01T22:00:00.000Z pm"
     }
-
+  },
+  "players" : {
+    "player1" : {
+      "name" : "Sawyer",
+      "number" : 0,
+      "position" : "P Forward",
+      "teamId" : "team1"
+    }
+  },
+  "statTypes" : {
+    "2ptsMade" : {
+      "name" : "2pts Made"
+    },
+    "2ptsMissed" : {
+      "name" : "2pts Missed"
+    },
+    "3ptsMade" : {
+      "name" : "3pts Made"
+    },
+    "3ptsMissed" : {
+      "name" : "3pts Missed"
+    },
+    "assists" : {
+      "name" : "Assists"
+    },
+    "blocks" : {
+      "name" : "Blocks"
+    },
+    "fouls" : {
+      "name" : "Fouls"
+    },
+    "freeThrowsMade" : {
+      "name" : "Free Throws Made"
+    },
+    "freeThrowsMissed" : {
+      "name" : "Free Throws Missed"
+    },
+    "rebounds" : {
+      "name" : "Rebounds"
+    },
+    "steals" : {
+      "name" : "Steals"
+    },
+    "turnovers" : {
+      "name" : "Turnovers"
+    }
+  },
+  "stats" : {
+    "-L28AUrXDL2i_oBG4Juu" : {
+      "gameId" : "-L28AUnKexo9jM04padH",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 24
+    },
+    "-L28AUrXDL2i_oBG4Juv" : {
+      "gameId" : "-L28AUnKexo9jM04padH",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 8
+    },
+    "-L28AUsA9TYBnPJGBG7H" : {
+      "gameId" : "-L28AUnKexo9jM04padH",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 17
+    },
+    "-L28AUscY66IODvFQbzD" : {
+      "gameId" : "-L28AUnKexo9jM04padH",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 39
+    },
+    "-L28AcDlVD_BwsA5JhDx" : {
+      "gameId" : "-L28Ac9uQBCj78cs5JAt",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 13
+    },
+    "-L28AcDoxnWGDYfdw2F1" : {
+      "gameId" : "-L28Ac9uQBCj78cs5JAt",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 37
+    },
+    "-L28AcESbBHPuZuurlo3" : {
+      "gameId" : "-L28Ac9uQBCj78cs5JAt",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 23
+    },
+    "-L28AcEo7ejXwU46gSzi" : {
+      "gameId" : "-L28Ac9uQBCj78cs5JAt",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 32
+    },
+    "-L28Ak-yJUhRQQ43xaT7" : {
+      "gameId" : "-L28AjxGUEGClX3ztFEC",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 19
+    },
+    "-L28Ak02dYQHMTq4CVou" : {
+      "gameId" : "-L28AjxGUEGClX3ztFEC",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 51
+    },
+    "-L28Ak098XiF8cnIMwK0" : {
+      "gameId" : "-L28AjxGUEGClX3ztFEC",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 27
+    },
+    "-L28Ak0G5WPeR0fRbPGA" : {
+      "gameId" : "-L28AjxGUEGClX3ztFEC",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 43
+    },
+    "-L28AsNtsMXTvoFPYWZh" : {
+      "gameId" : "-L28AsK7jLCkMbgZV4Or",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 6
+    },
+    "-L28AsO-Lds89IvMGnA_" : {
+      "gameId" : "-L28AsK7jLCkMbgZV4Or",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 42
+    },
+    "-L28AsO-Lds89IvMGnAa" : {
+      "gameId" : "-L28AsK7jLCkMbgZV4Or",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 14
+    },
+    "-L28AsO-Lds89IvMGnAb" : {
+      "gameId" : "-L28AsK7jLCkMbgZV4Or",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 39
+    },
+    "-L28B32NNs3JA9w6XMMl" : {
+      "gameId" : "-L28B2zXcAuthTB0qFHD",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 12
+    },
+    "-L28B32PExNDT9rGwOyx" : {
+      "gameId" : "-L28B2zXcAuthTB0qFHD",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 39
+    },
+    "-L28B32ZLXdQdNZBhPYt" : {
+      "gameId" : "-L28B2zXcAuthTB0qFHD",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 16
+    },
+    "-L28B32d-Rr6Xj6_pNoq" : {
+      "gameId" : "-L28B2zXcAuthTB0qFHD",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 41
+    },
+    "-L28BHFI5mJEs2ndXJs_" : {
+      "gameId" : "-L28BHBSOd6wXRzKu0YK",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 0
+    },
+    "-L28BHFNEGxrY693ZVbn" : {
+      "gameId" : "-L28BHBSOd6wXRzKu0YK",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 0
+    },
+    "-L28BHFTEU0vlI-eC5dR" : {
+      "gameId" : "-L28BHBSOd6wXRzKu0YK",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 0
+    },
+    "-L28BHFZdvtn-M1GMZXF" : {
+      "gameId" : "-L28BHBSOd6wXRzKu0YK",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 0
+    },
+    "-L28BOvws998sqUb9P4J" : {
+      "gameId" : "-L28BOs8sG4LA8J-_9ah",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 0
+    },
+    "-L28BOvxg523G5xErtsf" : {
+      "gameId" : "-L28BOs8sG4LA8J-_9ah",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 0
+    },
+    "-L28BOw1-Kvm-SyLp-O7" : {
+      "gameId" : "-L28BOs8sG4LA8J-_9ah",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 0
+    },
+    "-L28BOw4Fl9Tys060Oga" : {
+      "gameId" : "-L28BOs8sG4LA8J-_9ah",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 0
+    },
+    "-L28B_0KL0jV_oX4hmyW" : {
+      "gameId" : "-L28BZxPod6qSUEMQADe",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 0
+    },
+    "-L28B_0PoTuD1oaFwSMJ" : {
+      "gameId" : "-L28BZxPod6qSUEMQADe",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 0
+    },
+    "-L28B_0VpjluxY4S9Q1B" : {
+      "gameId" : "-L28BZxPod6qSUEMQADe",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 0
+    },
+    "-L28B_0b9OWmQXJnUWKu" : {
+      "gameId" : "-L28BZxPod6qSUEMQADe",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 0
+    },
+    "-L28BhoyB2mfAJwJ_hP6" : {
+      "gameId" : "-L28BhkhZBIAgfCsWpqR",
+      "playerId" : "",
+      "statTypeId" : "assists",
+      "total" : 0
+    },
+    "-L28BhoyB2mfAJwJ_hP7" : {
+      "gameId" : "-L28BhkhZBIAgfCsWpqR",
+      "playerId" : "",
+      "statTypeId" : "2ptsMade",
+      "total" : 0
+    },
+    "-L28BhoyB2mfAJwJ_hP8" : {
+      "gameId" : "-L28BhkhZBIAgfCsWpqR",
+      "playerId" : "",
+      "statTypeId" : "3ptsMade",
+      "total" : 0
+    },
+    "-L28Bhp33nIoGDdP8qvq" : {
+      "gameId" : "-L28BhkhZBIAgfCsWpqR",
+      "playerId" : "",
+      "statTypeId" : "rebounds",
+      "total" : 0
+    },
+    "stat1" : {
+      "gameId" : "game1",
+      "playerId" : "player1",
+      "statTypeId" : "rebounds",
+      "total" : 42
+    },
+    "stat2" : {
+      "gameId" : "game1",
+      "playerId" : "player1",
+      "statTypeId" : "assists",
+      "total" : 20
+    },
+    "stat3" : {
+      "gameId" : "game2",
+      "playerId" : "player1",
+      "statTypeId" : "rebounds",
+      "total" : 40
+    },
+    "stat4" : {
+      "gameId" : "game2",
+      "playerId" : "player1",
+      "statTypeId" : "assists",
+      "total" : 18
+    },
+    "stat5" : {
+      "gameId" : "game3",
+      "playerId" : "player1",
+      "statTypeId" : "assists",
+      "total" : 19
+    },
+    "stat6" : {
+      "gameId" : "game3",
+      "playerId" : "player1",
+      "statTypeId" : "rebounds",
+      "total" : 38
+    }
+  },
+  "teamPlayers" : {
+    "teamPlayer1" : {
+      "playerId" : "player1",
+      "teamId" : "team1"
+    }
+  },
+  "teamStatTypes" : {
+    "-L28AImN2ZeMHqrIXM1T" : {
+      "statTypeId" : "3ptsMade",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA"
+    },
+    "-L28AImTkxVSTSToQW8o" : {
+      "statTypeId" : "2ptsMade",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA"
+    },
+    "-L28AImhAt7QPyc5oJQ2" : {
+      "statTypeId" : "assists",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA"
+    },
+    "-L28AImi_Gs9RNA_qYdE" : {
+      "statTypeId" : "rebounds",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA"
+    },
+    "teamStatType0" : {
+      "statTypeId" : "rebounds",
+      "teamId" : "team1"
+    },
+    "teamStatType1" : {
+      "statTypeId" : "assists",
+      "teamId" : "team1"
+    }
+  },
+  "teams" : {
+    "-L28AEEHb0HAiWUZWhUA" : {
+      "coachId" : "5VKGFlKOCPeJzhHaTtqefaqdHFY2",
+      "league" : "Big 12",
+      "name" : "Jayhawks",
+      "season" : "2017/2018"
+    },
+    "team1" : {
+      "coachId" : "tracker1",
+      "league" : "Big 12",
+      "name" : "Jayhawks",
+      "season" : "2017/2018"
+    }
+  },
+  "trackers" : {
+    "-L28A8hMsZ_c9JRk2IXi" : {
+      "email" : "coachjane505@gmail.com",
+      "isCoach" : true,
+      "name" : "Test Admin",
+      "teamId" : "-L28AEEHb0HAiWUZWhUA",
+      "uid" : "5VKGFlKOCPeJzhHaTtqefaqdHFY2"
+    },
+    "tracker1" : {
+      "email" : "totallybill@balla.com",
+      "isCoach" : true,
+      "name" : "Billy",
+      "teamId" : "team1"
+    }
+  }
 }

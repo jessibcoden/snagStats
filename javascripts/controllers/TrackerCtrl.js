@@ -1,7 +1,8 @@
 "use strict";
 
 app.controller("TrackerCtrl", function($location, $routeParams, $scope, GameService, GameStatService){
-    
+   
+    // This controller is leveraged for active tracking
 
     const getStat = (statId) => {
         $scope.stat = {};

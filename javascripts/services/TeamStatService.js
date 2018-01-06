@@ -26,6 +26,24 @@ app.service("TeamStatService", function($http, $routeParams, $q, FIREBASE_CONFIG
         });
     };
 
+
+    const getStatTypesByTeamStatTypeId = (teamStatTypeId) => {
+        let statTypes = [];
+        return $q ((resolve, reject) =>{
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/statTypes.json?orderBy="id"&equalTo="${teamStatTypeId}"`).then((result) => {
+                console.log('result', result);
+                let fbStatTypes = result.data;
+                Object.keys(fbStatTypes).forEach((key) => {
+                    fbStatTypes[key].id = key;
+                    statTypes.push(fbStatTypes[key]);
+                });
+                resolve(statTypes);
+            }).catch((err) => {
+                reject(err);
+            });
+        });
+    };
+
     const getAllStatTypes = () => {
         let statTypes = [];
         return $q ((resolve, reject) =>{
@@ -46,5 +64,5 @@ app.service("TeamStatService", function($http, $routeParams, $q, FIREBASE_CONFIG
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/teamStatTypes.json`, JSON.stringify(newGame));
     });
 
-    return {createNewTeamStatTypeObject, getAllStatTypes, getTeamStatTypesByTeamId, postTeamStatType};
+    return {createNewTeamStatTypeObject, getAllStatTypes, getTeamStatTypesByTeamId, getStatTypesByTeamStatTypeId, postTeamStatType};
 });  
