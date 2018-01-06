@@ -10,9 +10,7 @@ body {
 	}
 }
 
-a:hover {
-	color: $orange;
-}
+
 
 nav {
 	background: $blue-dark !important;
@@ -85,9 +83,13 @@ nav {
   }
   
   .btn:hover {
-	background: $neutral-dark;
-	text-decoration: none;
-	color: #ffffff;
+	background: $neutral-dark !important;
+	text-decoration: none !important;
+	color: black !important;
+  }
+
+  .btn:active {
+	color: #ffffff !important;
   }
 
 #buttonGroup {
@@ -174,4 +176,25 @@ text-align: right;
 		margin-bottom: 20px;
 		font-size: 125%;
 	}
+}
+
+#insightsButtonGroup {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+  }
+
+#gameInsights {
+	margin: auto;
+	box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+	// border: 1px solid black;
+	width: 95vw;
+	margin-top: 20px;
+	margin-bottom: 10px;
+
+	.table {
+		overflow: scroll;
+	}
+
+
 }

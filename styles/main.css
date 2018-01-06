@@ -3,9 +3,6 @@ body {
   body h1, body h2, body h3 {
     font-family: "Krona One", sans-serif; }
 
-a:hover {
-  color: #EB3300; }
-
 nav {
   background: #0b4075 !important;
   font-family: "Krona One", sans-serif !important; }
@@ -60,9 +57,12 @@ nav {
   text-decoration: none; }
 
 .btn:hover {
-  background: #b19a6c;
-  text-decoration: none;
-  color: #ffffff; }
+  background: #b19a6c !important;
+  text-decoration: none !important;
+  color: black !important; }
+
+.btn:active {
+  color: #ffffff !important; }
 
 #buttonGroup {
   display: flex;
@@ -129,3 +129,17 @@ table {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 125%; }
+
+#insightsButtonGroup {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+
+#gameInsights {
+  margin: auto;
+  box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  width: 95vw;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+  #gameInsights .table {
+    overflow: scroll; }

@@ -9,5 +9,5 @@ app.controller("NavCtrl", function($location, $rootScope, $scope, $window, AuthS
     $rootScope.userLoggedIn = false;
     $location.path('/auth');
   };
-
+ 
 });

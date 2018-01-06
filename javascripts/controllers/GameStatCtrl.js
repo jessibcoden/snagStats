@@ -2,6 +2,8 @@
 
 app.controller("GameStatCtrl", function($location, $routeParams, $scope, GameStatService, GameService){
 
+    // This controller is leveraged for trackers to select a stat to track
+
     $scope.gameStats = [];
 
     const getGameStats = (gameId) => {
@@ -17,6 +19,7 @@ app.controller("GameStatCtrl", function($location, $routeParams, $scope, GameSta
     const getGame = () => {
         GameService.getGameByGameId($routeParams.gameId).then((results) => {
             $scope.game = results.data;
+            console.log('$scope.game', $scope.game);
         });
     };
 

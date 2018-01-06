@@ -5,7 +5,6 @@ app.controller("AuthCtrl", function ($location, $rootScope, $scope, AuthService,
   // On Login, if returning user, direct to Team Dashboard:
   $scope.authenticate = () => {
     AuthService.authenticateGoogle().then((result) => {
-      $rootScope.userLoggedIn = true;
 
       TrackerService.getSingleTracker(AuthService.getCurrentUid()).then((user) => {
         console.log('user', user);

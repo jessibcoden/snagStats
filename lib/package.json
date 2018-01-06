@@ -19,6 +19,8 @@
     "matchdep": "^2.0.0"
   },
   "dependencies": {
+    "@amcharts/amcharts3-angular": "github:amcharts/amcharts3-angular2",
+    "amcharts3": "github:amcharts/amcharts3",
     "angular": "^1.6.7",
     "angular-animate": "^1.6.7",
     "angular-route": "^1.6.7",

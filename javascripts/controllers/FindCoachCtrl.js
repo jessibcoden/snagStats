@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamService, TrackerService){
+app.controller("FindCoachCtrl", function($location, $rootScope, $scope, AuthService, TeamService, TrackerService){
 
     $scope.coach = null;
     
@@ -29,6 +29,7 @@ app.controller("FindCoachCtrl", function($location, $scope, AuthService, TeamSer
             tracker.teamId = teamId;
             const editedTracker = TrackerService.createTrackerObject(tracker);
             TrackerService.updateTracker(editedTracker, tracker.id).then(() => {
+                $rootScope.userHasTeam = true;
                 $location.url(`/teams/${teamId}/dashboard`);
             });
         });

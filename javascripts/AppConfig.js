@@ -68,6 +68,16 @@ app.config(function($routeProvider){
       controller: 'GameHistoryCtrl',
       resolve: {isAuth}
     })
+    .when('/games/:teamId/insights', {
+      templateUrl: 'partials/insightsDashboard.html',
+      controller: 'StatsViewCtrl',
+      resolve: {isAuth}
+    })
+    .when('/team/insights/:statTypeId}/stats', {
+      templateUrl: 'partials/stats.html',
+      controller: 'StatsViewCtrl',
+      resolve: {isAuth}
+    })
 
 // COACH - CREATING A TEAM:
     .when('/teams/new', {
