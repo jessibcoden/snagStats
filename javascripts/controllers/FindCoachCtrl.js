@@ -2,6 +2,8 @@
 
 app.controller("FindCoachCtrl", function($location, $rootScope, $scope, AuthService, TeamService, TrackerService){
 
+    // This controller is leveraged for Trackers only,search for team by coach email
+    
     $scope.coach = null;
     
     $scope.findMyCoach = (query) => {
